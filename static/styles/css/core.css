@@ -1,0 +1,96 @@
+#logo{
+  border-radius:10px;
+  width:100%;
+  margin-left:0px;
+  display: flex;
+  min-width:10%;
+  }
+.container{
+text-align:center;
+ margin-left:0px;
+    }
+
+
+h1,h2 {font-size: 3em;
+       text-align:center;}
+
+h3 {font-size: 3em;
+    text-align:center;
+    font-style:italic;}
+
+
+@media screen and (max-width: 90em) {
+h1,
+h2{
+  text-align: center;
+  font-size: 2.5em;
+}
+}
+
+@media screen and (max-width: 80em) {
+h1,
+h2{
+  text-align: center;
+  font-size: 1.75em;
+}
+}
+
+@media screen and (max-width: 50em) {
+h1,
+h2{
+  text-align: center;
+  font-size: 1.5em;
+}
+}
+
+@media screen and (max-width: 30em) {
+h1,
+h2{
+  text-align: center;
+  font-size: 1em;
+}
+}            
+
+
+@media screen and (max-width: 90em) {
+h3{
+  text-align:center;
+  font-style:italic;
+  font-size: 2em;
+}
+}
+
+
+@media screen and (max-width: 80em) {
+h3{
+  text-align:center;
+  font-style:italic;
+  font-size: 1.75em;
+}
+}
+
+@media screen and (max-width: 78em) {
+h3{
+  text-align:center;
+  font-style:italic;
+  font-size: 1.5em;
+}
+}
+
+@media screen and (max-width: 50em) {
+h3{
+  text-align:center;
+  font-style:italic;
+  font-size: 1em;
+}
+}
+
+
+
+@media screen and (max-width: 30em) {
+h3{
+  text-align:center;
+  font-style:italic;
+  font-size: 1em;
+}
+}
