@@ -1,63 +1,13 @@
-<!DOCTYPE html>
-<html>
-    <head>
-    
-        <meta charset="utf-8"/>
-           
-        <title>GrandPY</title>
-
-   
-
-        <link  rel="stylesheet" href="/static/styles/css/home.css" />
-
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-        <script src="/static/styles/js/home2.js" type="text/javascript"></script>
-
-        
-        <link rel="shortcut icon" href="/static/img/favicon.ico">
-        
-
-
-
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
-
-	<script async defer
-    		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCt2O8fe5cHDLkjjFk4TQ9Os5Y3vFGmqU8&callback=initMap">
-	</script>
-
-	
-        <div class="container">
-          <div class="row">
-          
-            <div class="col-lg-1 col-xs-12">
-                <a href ="yo"><img src="static/images/image1.jpg" id="logo" alt="logo"/></a>
-            </div>
-
-    
+{ % extends '/templates/core/default.html'% }
             
-            <div class="col-lg-10 col-xs-12">
-              <h1>HOME</h1>
-              <h2>Hey I'm GrandCat</h2>
-              <h3>Site exclusivement réservé à la recherche d'adresse</h3>
-          </div>
-          
-         </div>
-      </div>
-
-
-
-
-        </head>
-            
-        <body>
+{ % block body % }
             
 
 
-  <div class="essais" id ="essaie"></div>
+        <div class="essais" id ="essaie"></div>
 
 
-  </form>
+
       
     <div class="container">
       <div class="row">
@@ -121,8 +71,7 @@
         </body>
 
 
-</html>
-
+{ % endblock body % }
 
 
 
