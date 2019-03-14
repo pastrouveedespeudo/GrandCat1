@@ -1,60 +1,72 @@
-{ % extends '/templates/core/default.html'% }
+{% extends 'core/default.html'%}
             
-{ % block body % }
-            
+    {% block body %}
 
 
-        <div class="essais" id ="essaie"></div>
+    <link href="/static/styles/css/homehome.css" rel="stylesheet" type="text/css"/>    
+    <script type="text/javascript" src="/static/styles/js/home.js"></script>
 
 
 
-      
-    <div class="container">
-      <div class="row">
-      
-        <div id="image1" class="col-lg-2 col-xs-12">
-          <img id="tourne" src="static/images/tourne/one.jpg"/>
-          
-        </div>
-        
-      
-  
-        <br>
-        <div id="map" class="col-lg-6 col-xs-12">
-          <img src="static/images/yo.jpg" id="payschat"/>
-          <img src="static/images/p.jpg" id="payschat"/>
-        </div>
-
-      
-    </div>
-  
-
-  
-    <div class="container">
-      <div class="row">
-
-        <div id="monCadreWiki" class="class="col-lg-6 col-xs-12"></div>
     
-        <div id="monCadre", class="class="col-lg-6 col-xs-12"></div>
-        <br>
-        <div class="class="col-lg-4 col-xs-12" id="inp">
-          <form id="form_data">
+    <div class="container col-lg-12 col-xs-12">
+        <div class="row">
 
-            <input type="text" class="classRecupInfo" id="idRecupInfo" size="80" 
-                placeholder="Salut GrandPy ! Est-ce que tu connais l'adresse d'OpenClassrooms ?"/><br>
-
-      
-            <input type="submit" class="classButtonInput" id="idButtonInput" value="Enter"/>
-            <center><img src="/static/images/chat_home.jpg" alt="imagecat" /></center>
-
-         </form>
-         
-
-         
-       </div>
-
-
+            <div id="image1" class="col-lg-5 col-xs-3">
+              <img id="tourne" src="static/images/tourne/one.jpg"/>
+              
+            </div>
+        </div>
     </div>
+    
+            <br>
+                
+    <div class="container col-lg-12 col-xs-12">
+        <div class="row">
+        
+            <div id="map" class="col-lg-12 col-xs-12">
+              <img src="static/images/yo.jpg" id="payschat"/>
+              <img src="static/images/p.jpg" id="payschat"/>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+    <div class="container col-lg-6 col-xs-12">
+       <div class="row">
+
+            <div id="monCadreWiki" class="col-lg-6 col-xs-12">
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container col-lg-6 col-xs-12">
+       <div class="row">
+            <div id="monCadre", class="col-lg-6 col-xs-12">
+            </div>
+
+       
+            <div class="col-lg-12 col-xs-12" id="inp">
+              <form id="form_data">
+
+                <input type="text" class="classRecupInfo" id="idRecupInfo" size="80" 
+                    placeholder="Salut GrandPy ! Est-ce que tu connais l'adresse d'OpenClassrooms ?"/><br>
+
+          
+                <input type="submit" class="classButtonInput" id="idButtonInput" value="Enter"/>
+                <center><img src="/static/images/chat_home.jpg" alt="imagecat" id="supp"/></center>
+
+             </form>
+             
+
+            </div>
+
+
+        </div>
     </div>
       
       <div id="monCadreAlert"></div>  
@@ -68,18 +80,15 @@
 
       <div class="divFavorite" id="divFavorite"></div>
 
+
+    
+
+
         </body>
+          
+    </html>
 
-
-{ % endblock body % }
-
-
-
-
-
-
-
-
+{% endblock body %}
 
 
 
