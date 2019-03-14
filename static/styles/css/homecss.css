@@ -1,24 +1,26 @@
 @charset "utf-8";
 
-
+body{
+  background-color:pink;
+}
 #tourne{
-width:90%;
-margin-right:100px;
-margin-top:auto;
-min-width:30px;
-min-height:30px;
-max-width:200px;
+  width:90%;
+  margin-right:100px;
+  margin-top:auto;
+  min-width:30px;
+  min-height:30px;
+  max-width:200px;
 }
 
 
 #map{
-width:100%;
-margin-top:auto;
+  width:100%;
+  margin-top:auto;
 
 }
 #payschat{
-width:20%;
-height:80%;
+  width:20%;
+  height:80%;
 
 
 }
@@ -28,8 +30,9 @@ height:80%;
     border: 2px solid black;
     width: 100%;
     overflow:scroll;
+    height:150px;
     float:left;
-
+    background-color:magenta;
 
 }
 
@@ -40,6 +43,7 @@ height:80%;
     position:relative;
     border:2px solid black;
     width: 100%;
+    height:150px;
     background-color:green;
     overflow:scroll;
     float:left;
@@ -47,8 +51,8 @@ height:80%;
 
 #supp{
 
-width:30%;
-max-width:100px;
+  width:30%;
+  max-width:100px;
 }
 
 
@@ -72,11 +76,6 @@ p{
 }
 
 
-
-
-
-
-
 #image1{
   float:right;
 }
@@ -95,13 +94,9 @@ p{
 #divFavorite{
   margin-right:0 auto;
 }
-#payschat{
-  height:200px;
-  width: 0 auto;
 
 
 
-}
 #inp{
   float:left;
 
