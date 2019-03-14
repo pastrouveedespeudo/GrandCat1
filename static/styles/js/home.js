@@ -79,6 +79,7 @@ function map(){
 
 document.getElementById("map").innerHTML = ""
 document.getElementById("map").style.width = "100%"
+document.getElementById("map").style.height = "200px"
 }
 
 
