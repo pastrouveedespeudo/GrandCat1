@@ -1,85 +1,55 @@
 @charset "utf-8";
 
 
-
-
-#logo{
-  border-radius:10px;
-  width:100%;
-  margin-left:0px;
-  display: flex;
-  min-width:10%;
-  }
-.container{
-text-align:center;
- margin-left:0px;
-    }
-
-
-h1,h2 {font-size: 3em;
-       text-align:center;}
-
-h3 {font-size: 3em;
-    text-align:center;
-    font-style:italic;}
-
-
-@media screen and (max-width: 64em) {
-h1,
-h2{
-  text-align: center;
-  font-size: 2em;
-}
-}
-
-@media screen and (max-width: 50em) {
-h1,
-h2{
-  text-align: center;
-  font-size: 1.5em;
-}
-}
-
-@media screen and (max-width: 30em) {
-h1,
-h2{
-  text-align: center;
-  font-size: 1em;
-}
-}            
-
-@media screen and (max-width: 64em) {
-h3{
-  text-align:center;
-  font-style:italic;
-  font-size: 2em;
-}
+#tourne{
+width:90%;
+margin-right:100px;
+margin-top:auto;
+min-width:30px;
+min-height:30px;
+max-width:200px;
 }
 
 
-@media screen and (max-width: 50em) {
-h3{
-  text-align:center;
-  font-style:italic;
-  font-size: 1.5em;
+#map{
+width:100%;
+margin-top:auto;
+
 }
+#payschat{
+width:20%;
+height:80%;
+
+
+}
+
+
+#monCadreWiki{
+    border: 2px solid black;
+    width: 100%;
+    overflow:scroll;
+    float:left;
+
+
 }
 
 
 
-@media screen and (max-width: 30em) {
-h3{
-  text-align:center;
-  font-style:italic;
-  font-size: 1em;
-}
+
+#monCadre{
+    position:relative;
+    border:2px solid black;
+    width: 100%;
+    background-color:green;
+    overflow:scroll;
+    float:left;
 }
 
-.menu{
-  position:relative;
-  left:2500px;
-}
+#supp{
 
+width:30%;
+max-width:100px;
+}
 
 
 
@@ -102,49 +72,26 @@ p{
 }
 
 
-#monCadre{
-    position:relative;
-    margin-top:-200px;
-    border:2px solid black;
-    width: 580px;
-    height: 150px;
-    background-color:green;
-    overflow:scroll;
-    margin:0 auto;
-}
 
 
-#map{
-    height:200px;
-    width:700px;
-    margin-top:auto;
-    float-left;
-}
+
+
 
 #image1{
   float:right;
 }
 
-#tourne{
-    margin-top:auto;
-    float:right;
-   
-}
 
+#c{
+ float:left;
+ color:red;
+}
 .formPseudo{
     margin-top:-200;
     margin-right:910px;
 }
 
-#monCadreWiki{
-    margin:0 auto;
-    border: 2px solid black;
-    width: 580px;
-    height: 150px;
-    overflow:scroll;
-    float:left;
 
-}
 #divFavorite{
   margin-right:0 auto;
 }
