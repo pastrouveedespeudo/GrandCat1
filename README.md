@@ -1,5 +1,7 @@
 # GrandCat1
 
-#colorier les image en pink enleve le magenta ecrire en plus foncé dans les cadres
-
 #rend ca plus jolie ptetre mais j'aime bien comme ca
+
+#le logo fait bouger otut le cadre reduire la taille de la deuxieme image
+
+#ajoute  des fonctionnalites peut etre pcque c hard moche en vrai pour la note
