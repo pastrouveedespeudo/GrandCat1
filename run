@@ -67,16 +67,28 @@ def bot(entrance):
     no_adresse = ""
     
     print(entrance)
-    conteneur_phrase = conteneur()
- 
-    for i in conteneur_phrase:
-        for j in i:
-            if j == str(entrance):
-                no_adresse = True
+
+
+    comment_ca_va = phase_une(entrance)
+    
+    amorcage = amorce(entrance)
+
+    vous = q_vous(entrance)
+
+    phase_uno = phase_1_decide(amorcage,
+                   comment_ca_va,
+                   vous,
+                   entrance)
+
+    if phase_uno != "oups y'a eu une erruer":
+        no_adresse = True
+
+    elif phase_uno != "oups y'a eu une erruer":
+        no_adresse = False
 
 
 
-    return no_adresse, entrance
+    return no_adresse, entrance, phase_uno
 
 
 
@@ -88,7 +100,7 @@ def wiki():
 
     entry = bot(data_wiki)
     if entry[0] == True:
-        reponse = "gonorééééééééééé"
+        reponse = entry[2]
         
         return jsonify({'data':reponse})
 
