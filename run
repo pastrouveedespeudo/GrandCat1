@@ -12,11 +12,10 @@ from flask import jsonify
 from geopy.geocoders import Nominatim
 from flask import render_template
 from datetime import datetime
-import mysql.connector
 import requests
 import wikipediaapi
 import random
-
+import time
 app = Flask(__name__)
 
 
@@ -57,6 +56,28 @@ def home():
     title_page = "HOME"
     return render_template("home.html",title_page=title_page)
 
+def bot(entrance):
+    entrance = entrance.lower()
+    if entrance == "Bonjour" or entrance == "bonjour":
+        return True
+
+    elif entrance == "ca va" or\
+         entrance == "Ca va" or\
+         entrance == "ca va merci et toi" or\
+         entrance == "femme":
+        return True
+
+
+
+def tchat(entrance):
+    entrance = entrance.lower()
+    if entrance == "Bonjour" or entrance == "bonjour":
+        return "Bonjour comment cha va ?"
+    
+    elif entrance == "homme" or\
+         entrance == "Homme" or\
+         entrance == "Femme" or\
+         entrance == "femme":
 
 
 
@@ -66,10 +87,16 @@ def wiki():
     liste = [[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]]
     data_wiki = request.form['data']
 
+    #entry = bot(data_wiki)
+    
+    #if entry == True:
+    #    #tchat(data_wiki)
+    #else:
     nettoyage = apostrohpe(data_wiki)
     dernier_mot = parsing_texte(nettoyage)
     
     search = searching(dernier_mot)
+
 
     c = 0
     for i in search[0]:
@@ -143,36 +170,36 @@ def wiki():
             print(i)
             wiki_wiki = wikipediaapi.Wikipedia('fr')
             page_py = wiki_wiki.page('{}'.format(i[1:]))
-            
+            print(page_py)
             existe = page_py.exists()
             if existe == True:
                 break
 
 
-    sentence_from_grandpy = ["chochochocolat", "en voici en voila",
-                             "vive les patates", "dites oui pas non, c jb le plus bo ?",
-                             "TU PEUX PAS TESTE SHYVA chai pas qui c"]
+    sentence_from_grandpy = ["Savez tu que :", "T'avais-je dis que :",
+                             "Une fois on m'a dit que :"]
     
 
     choix = random.choice(sentence_from_grandpy)
-    
-    page = ("<strong>" + str(choix) + ":" +"</strong>" + "<br>" + str(page_py.sections[0:200]) + "...")
+    try:
+        page = ("<strong>" + str(choix) + ":" +"</strong>" + "<br>" + str(page_py.sections[0:200]) + "...")
+    except UnboundLocalError:
+        page = "<strong>Oups GrandCat ne trouve rien a dire !</strong>" + "<br>"
 
-
-   
+    time.sleep(3)
     if data_wiki:
         return jsonify({'data':page})
 
-  
+
 
 
 @app.route('/data', methods=["POST"])
 def data():
     """Here, we just recup data with request form"""
     """from jquerry function() who define content from input"""
-    
+    time.sleep(3)
     data = request.form['data']
-
+    time.sleep(3)
     nettoyage = apostrohpe(data)
     dernier_mot = parsing_texte(nettoyage)
 
@@ -293,7 +320,7 @@ def page_not_found(error):
 if __name__== "__main__":
     
 
-    app.run()
+    app.run(debug=True)
    
      
 
