@@ -16,6 +16,11 @@ import requests
 import wikipediaapi
 import random
 import time
+from conteneur import *
+from decide import *
+
+
+
 app = Flask(__name__)
 
 
@@ -58,26 +63,20 @@ def home():
 
 def bot(entrance):
     entrance = entrance.lower()
-    if entrance == "Bonjour" or entrance == "bonjour":
-        return True
 
-    elif entrance == "ca va" or\
-         entrance == "Ca va" or\
-         entrance == "ca va merci et toi" or\
-         entrance == "femme":
-        return True
-
-
-
-def tchat(entrance):
-    entrance = entrance.lower()
-    if entrance == "Bonjour" or entrance == "bonjour":
-        return "Bonjour comment cha va ?"
+    no_adresse = ""
     
-    elif entrance == "homme" or\
-         entrance == "Homme" or\
-         entrance == "Femme" or\
-         entrance == "femme":
+    print(entrance)
+    conteneur_phrase = conteneur()
+ 
+    for i in conteneur_phrase:
+        for j in i:
+            if j == str(entrance):
+                no_adresse = True
+
+
+
+    return no_adresse, entrance
 
 
 
@@ -87,108 +86,139 @@ def wiki():
     liste = [[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]]
     data_wiki = request.form['data']
 
-    #entry = bot(data_wiki)
-    
-    #if entry == True:
-    #    #tchat(data_wiki)
-    #else:
-    nettoyage = apostrohpe(data_wiki)
-    dernier_mot = parsing_texte(nettoyage)
-    
-    search = searching(dernier_mot)
-
-
-    c = 0
-    for i in search[0]:
+    entry = bot(data_wiki)
+    if entry[0] == True:
+        reponse = "gonorééééééééééé"
         
-        if i == ",":
-            c+=1
+        return jsonify({'data':reponse})
 
-        else:
-            liste[c].append(i)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    else:
+
+        nettoyage = apostrohpe(data_wiki)
+        dernier_mot = parsing_texte(nettoyage)
+        
+        search = searching(dernier_mot)
+
+
+        c = 0
+        for i in search[0]:
             
-    
-    c1 = 0
+            if i == ",":
+                c+=1
 
-    parsing_list = []
-    parsing_list_2 = []
+            else:
+                liste[c].append(i)
+                
+        
+        c1 = 0
 
-    no_number = ""
-    no_country = ""
+        parsing_list = []
+        parsing_list_2 = []
 
-    integer = False
+        no_number = ""
+        no_country = ""
 
-    for i in liste:
-        i = "".join(i)
-  
-
-        for j in i:
-            try:
-                j = int(j)
-                if type(j) == int:
-
-                    integer = True
-            except:
-                pass
-
-        if integer == True:
-            pass
-        else:
-            parsing_list.append(i)
-            
         integer = False
 
+        for i in liste:
+            i = "".join(i)
+      
+
+            for j in i:
+                try:
+                    j = int(j)
+                    if type(j) == int:
+
+                        integer = True
+                except:
+                    pass
+
+            if integer == True:
+                pass
+            else:
+                parsing_list.append(i)
+                
+            integer = False
 
 
-    country = False
-    for i in parsing_list:
-   
-        if i == []:
-            pass
 
-        else:
-            for j in LISTE_PAYS:
-                if j == i:
-                    country = True
-            
-            if country == True:
+        country = False
+        for i in parsing_list:
+       
+            if i == []:
                 pass
 
             else:
-                parsing_list_2.append(i)
+                for j in LISTE_PAYS:
+                    if j == i:
+                        country = True
                 
-        country = False
+                if country == True:
+                    pass
+
+                else:
+                    parsing_list_2.append(i)
+                    
+            country = False
 
 
 
-    parsing_list_2 = parsing_list_2[1:]
-    for i in parsing_list_2:
-        if i == "":
-            pass
-     
-        else:
-            print(i)
-            wiki_wiki = wikipediaapi.Wikipedia('fr')
-            page_py = wiki_wiki.page('{}'.format(i[1:]))
-            print(page_py)
-            existe = page_py.exists()
-            if existe == True:
-                break
+        parsing_list_2 = parsing_list_2[1:]
+        for i in parsing_list_2:
+            if i == "":
+                pass
+         
+            else:
+                print(i)
+                wiki_wiki = wikipediaapi.Wikipedia('fr')
+                page_py = wiki_wiki.page('{}'.format(i[1:]))
+                print(page_py)
+                existe = page_py.exists()
+                if existe == True:
+                    break
 
 
-    sentence_from_grandpy = ["Savez tu que :", "T'avais-je dis que :",
-                             "Une fois on m'a dit que :"]
-    
+        sentence_from_grandpy = ["Savez tu que :", "T'avais-je dis que :",
+                                 "Une fois on m'a dit que :"]
+        
 
-    choix = random.choice(sentence_from_grandpy)
-    try:
-        page = ("<strong>" + str(choix) + ":" +"</strong>" + "<br>" + str(page_py.sections[0:200]) + "...")
-    except UnboundLocalError:
-        page = "<strong>Oups GrandCat ne trouve rien a dire !</strong>" + "<br>"
+        choix = random.choice(sentence_from_grandpy)
+        try:
+            page = ("<strong>" + str(choix) + ":" +"</strong>" + "<br>" + str(page_py.sections[0:200]) + "...")
+        except UnboundLocalError:
+            page = "<strong>Oups GrandCat ne trouve rien a dire !</strong>" + "<br>"
 
-    time.sleep(3)
-    if data_wiki:
-        return jsonify({'data':page})
+        time.sleep(3)
+        if data_wiki:
+            return jsonify({'data':page})
 
 
 
