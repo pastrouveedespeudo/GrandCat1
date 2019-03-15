@@ -1,26 +1,28 @@
-#on remplis la case wiki par une image gnre salut emoticone !
-
 from conteneur import *
 from conteneur_rep import *
+import random
 
 
+def phase_une(entree):
+    debut = conteneur()
 
-def q_sans_rien(entree):
-    conteneur()
-    conteneur_reponse1()
+    mot_commencement_politesse = ""
 
-    espace = ""
-
-
-    for i in entree:
-        if i == " ":
-            espace = True
-
+    
+    for i in debut[3]:
+        politesse = str(entree).find(i)
+        if politesse >= 0:
+            politessse = True
         else:
-            espace = False
+            politessse = False
 
-    return espace
-    #si y'a un espace alors y'a un autre truk apres
+    return mot_commencement_politesse
+
+
+    #si mot_commencement_politesse == bonjour alors ph1
+
+
+
     
 def q_vous(entree):
 
@@ -36,17 +38,72 @@ def q_vous(entree):
 
 
     
-def rep_bonjour(entree):
+def amorce(entree):
 
     bj = ""
+    liste = 0
+
     
     bonjour = str(entree).find("bonjour")
+    salut = str(entree).find("salut")
+    coucou = str(entree).find("coucou")
+    hey = str(entree).find("hey")
+    heyy = str(entree).find("heyy")
+    yo = str(entree).find("yo")
+    hello = str(entree).find("hello")
+    kikou = str(entree).find("kikou")
+
     if bonjour >= 0:
-        bj = True
+        bj = "bonjour"
+        liste += 1
+        
+    elif salut >= 0:
+        bj = "salut"
+        liste += 2
+            
+    elif coucou >= 0:
+        bj = "coucou"
+        liste += 3
+            
+    elif hey >= 0:
+        bj = "hey"
+        liste += 4
+            
+            
+    elif yo >= 0:
+        bj = "yo"
+        liste += 5
+            
+    elif hello >= 0:
+        bj = "hello"
+        liste += 6
+            
+    elif kikou >= 0:
+        bj = "kikou"
+        liste += 7
+            
 
 
-    return bj
+    return bj, liste
     #si bonjour alors on rep bonjour sinon autre hasard
+
+
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 def fin_debut_de_conversation():
@@ -54,7 +111,8 @@ def fin_debut_de_conversation():
 
 
 
-
+def reponse():
+    pass
 
 
 
@@ -76,4 +134,57 @@ def toutes_les_3phrases():
 def enregistrement():
     pass
 #dans un fichier comme ca on recup la convers
+
+
+
+
+
+#-----------------------------------------
+
+def phase_1_decide(amorcage,
+                   comment_ca_va,
+                   vous,
+                   entrance):
+
+
+    try:
+        amorce = conteneur()
+
+        if vous == False:
+            pronom ="tu"
+            
+        choix_phrase = random.choice(amorce[amorcage[1]])
+        print(choix_phrase)
+        
+        return choix_phrase
+        
+    except:
+        return "oups y'a eu une erruer"
+##
+##    if comment_ca_va == True:
+##        pass
+##
+##    if vous == True:
+##        pronom = "vous"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
