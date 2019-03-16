@@ -25,7 +25,7 @@
 
 <body>
     
-  <div class="overlay"></div>
+
 
 
   <div class="masthead">
@@ -33,10 +33,12 @@
   
   <!-- logo -->
   <style>
+  
+
   #logoo{
           margin-top:10px;
           border-radius:10px;
-          width:10%;
+          width:15%;
           margin-left:10px;
           display: flex;
           min-width:30px;
@@ -47,19 +49,19 @@
  #tourne{
   margin-top:10px;
    border-radius:10px;
-   width:15%;
+   width:30%;
    float:right;
 
    
    display: flex;
           
 
-   min-width:40px;
-   min-height:40px;
+   min-width:50px;
+   min-height:50px;
    max-width:120px;
    border:3px solid black;
    
-   max-height:150px;
+   max-height:200px;
  }
  
  #map{
@@ -74,31 +76,28 @@
 
  }
 
- #p{
-  font-size:2em;
 
- }
 
                       #monCadreWiki{
-                      border: 2px solid black;
+                      border: 1px solid black;
                       width: 100%;
-                      overflow:scroll;
+                      overflow:auto;
                       height:150px;
                       float:left;
-                      background-color:#ffffff;
+                      background-color:# bd6242;
+                      
                   }
-
 
 
 
                   #monCadre{
                       position:relative;
-                      border:2px solid black;
+                      border: 1px solid black;
                       width: 100%;
                       height:150px;
-                      overflow:scroll;
+                      overflow:auto;
                       float:left;
-                      background-color:#ffffff;
+                      background-color:# bd6242;
                   }
 
   </style>
@@ -111,11 +110,11 @@
     <div class="container col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <div class="row">
         
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-5">
+            <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
                 <img src="static/images/image1.jpg" id="logoo" alt="logo"/>
             </div>
             
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6" style="height:100px;">
+            <div class="col-xs-5 col-sm-5 col-md-5 col-lg-6" style="height:100px;">
                 <img id="tourne" src="static/images/tourne/one.jpg"/>
             </div>
             
@@ -133,7 +132,7 @@
           <div class="masthead-content text-white py-5 py-md-0">
 
             <h1 class="mb-3">I'm Grand Cat !</h1>
-            <p class="mb-5" id="p">Entrez une addresse ! on la cherche pour vous, allez donc essayer note tchat !</p>
+            <h5 class="mb-5" id="p">Entrez une addresse ! on la cherche pour vous, allez donc essayer note tchat !</h5>
 
 
 
@@ -153,65 +152,59 @@
              <div class="container col-xs-12 col-sm-12 col-md-12 col-lg-12">
                  <div class="row">
 
-                      <div id="monCadre" class="col-xs-offset-3 col-sm-offset-0 col-md-offset-0 col-lg-6"></div>
-                      <div id="monCadreWiki" class="col-xs-offset-3 col-sm-offset-0 col-md-offset-0 col-lg-6"></div>
-                                 
-
+                      <div id="monCadre" class="col-xs-offset-3 col-sm-offset-0 col-md-offset-0 col-lg-5"></div>
+                      <div class="col-xs-0 hidden-sm hidden-md col-lg-1"><br></div>
+                      <div id="monCadreWiki" class="col-xs-offset-3 col-sm-offset-0 col-md-offset-0 col-lg-6"></div>           
                 </div>
             </div>
 
 
 
-            <div class="container col-xs-12 col-sm-12 col-md-12 col-lg-12">
-              <div class="row">
-                <form id="form_data">
-
-                      <input type="text" class="classRecupInfo" id="idRecupInfo" style="width:600%;"
-                          placeholder="Salut GrandPy ! Est-ce que tu connais l'adresse d'OpenClassrooms ?"/><br>
-      
-                      <input type="submit" class="classButtonInput" id="idButtonInput" value="Enter" style="width:50%;"/>
-                 </form>
-              </div>
-            </div>
+            <style>
+            #sub{
+                margin-left:auto;
+            }
+            </style>
 
 
 
+            <br>
+            <form id="form_data">
+                <div class="container col-xs-12 col-sm-12 col-md-12 col-lg-12 style="text-align:center;" id="ud">
+                    <div class="row">
+                    
+                        
+                        <input type="text" style="width:84%; text-align:center; border-radius:10px; border:2px solid black; height:50px;
+                        font-size: 1.3vw;"
+                            placeholder="Salut GrandPy ! Est-ce que tu connais l'adresse d'OpenClassrooms ?"/><br>
+          
+                        <input type="submit" id="sub" value="Enter"
+                            style="width:15%; border:2px solid black; height:50px; border-radius:10px; font-size: 1.2vw;"/>
+                       
+ 
+                   </div>
+                </div>
+             </form>
 
+
+
+                      
+                 
+        </div>
+    </div>
 
 
           
               
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
 
-
-
-
-
-
-  <div class="social-icons">
-  
-    <ul class="list-unstyled text-center mb-0">
-
-      <li class="list-unstyled-item">
-        <a href="#">
-          <i class="fab fa-instagram"></i>
-        </a>
-      </li>
-    </ul>
-  </div>
 
   <!-- Bootstrap core JavaScript -->
   <script src="static/vendor/jquery/jquery.min.js"></script>
   <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Custom scripts for this template -->
-  <script src="static/js/coming-soon.min.js"></script>
+  <script src="static/style/js/aaa.js"></script>
 
 </body>
 
@@ -270,76 +263,30 @@ html{height:100%}
 
 body{
     height:100%;
-    min-height:35rem;
     position:relative;
     font-family:'Source Sans Pro';
-    font-weight:300
+     background-color:#cd9557;
     }
 
 
-h1,h2,h3,h4,h5,h6{
+h1{
     font-family:Merriweather;
-    font-weight:700
+    font-weight:700;
+    font-size: 1.75vw;
     }
 
 
-.overlay{
-    position:absolute;
-    top:0;
-    left:0;
-    height:100%;
-    width:100%;
-    background-color:#cd9557;
-    opacity:.7;
-    z-index:2}
+h2,h3,h4,h5,h6{
+    font-family:Merriweather;
+    font-weight:700;
+    font-size: 1.6vw;
+    }
 
-.masthead{position:relative;overflow:hidden;padding-bottom:3rem;z-index:2}
+
+.masthead{position:relative;overflow:hidden;padding-bottom:5rem;z-index:2}
 
 .masthead .masthead-bg{
-	position:absolute;
-top:0;bottom:0;right:0;left:0;
-width:100%;min-height:35rem;height:100%;
-.masthead-content p{font-size:1.2rem}.masthead .masthead-content p strong{font-weight:700}.masthead .masthead-content
- .input-group-newsletter input{height:auto;font-size:1rem;padding:1rem}.masthead .masthead-content 
-.input-group-newsletter button{font-size:.8rem;font-weight:700;text-transform:uppercase;
-
-letter-spacing:1px;padding:1rem}@media (min-width:768px){.masthead{height:100%;min-height:0;width:40.5rem;padding-bottom:0}
-
-.masthead .masthead-bg{min-height:0;-webkit-transform:skewX(-8deg);transform:skewX(-8deg);-webkit-transform-origin:top right;transform-origin:top right}
-
-.masthead .masthead-content{padding-left:3rem;padding-right:10rem}.masthead .masthead-content h1{font-size:3.5rem}
-.masthead .masthead-content p{font-size:1.3rem}}
-
-.social-icons{position:absolute;margin-bottom:2rem;width:100%;z-index:2}
-
-.social-icons ul{margin-top:2rem;width:100%;text-align:center}
-
-.social-icons ul>li{margin-left:1rem;margin-right:1rem;display:inline-block}
-
-.social-icons ul>li>a{display:block;color:#fff;background-color:rgba(0,46,102,.8);
-
-border-radius:100%;font-size:2rem;line-height:4rem;height:4rem;width:4rem}
-
-@media (min-width:768px){.social-icons{margin:0;position:absolute;right:2.5rem;bottom:2rem;width:auto}
-
-.social-icons ul{margin-top:0;width:auto}.social-icons ul>li{display:block;margin-left:0;margin-right:0;margin-bottom:2rem}
-
-.social-icons ul>li:last-child{margin-bottom:0}
-
-.social-icons ul>li>a{-webkit-transition:all .2s ease-in-out;transition:all .2s ease-in-out;font-size:2rem;line-height:4rem;height:4rem;width:4rem}
-
-.social-icons ul>li>a:hover{background-color:#002e66}}.btn-secondary{background-color:#cd9557;border-color:#cd9557}
-
-.btn-secondary:active,.btn-secondary:focus,.btn-secondary:hover{background-color:#ba7c37!important;border-color:#ba7c37!important}
-
-.input{font-weight:300!important}
-
-
-
-
-
-@charset "utf-8";
-
+	
 
 
 #map{
@@ -430,29 +377,8 @@ p{
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
+
 
 <style>
 
