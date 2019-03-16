@@ -16,3 +16,5 @@
 7 tout remettre a leur place
 
 8 les height sont pas repsonsive mais sinon ca fait moche sans rien a linté ils sont applatit donc chpas un vw = 600 lignes 
+
+9 modifier la police dans les cadre ! et leur couleur 
