@@ -4,6 +4,10 @@
 
 #ps ne parle plus jamais au bot ia ! eliza tu te confie et elle te sort as-tu un probleme psychologique ? et cleverbot lui cherche a te pecho.. ia de merde
 
+#repare heroku 
+
+#integre les phrase d'eliza et de cleverbot dans ton chat
+
 #remettre l'extend et tout mettre dans les bon dossier
 
 #refaire une page avec son form
