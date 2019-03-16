@@ -1,9 +1,6 @@
 # GrandCat1
 
 
-2 le gros chat sarrete plus
-
-
 4 faire juste bonjour
 
 
