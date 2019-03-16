@@ -32,25 +32,6 @@ LOCALISATION_WIKI = []
 
 LISTE_PAYS = [" France", " France métropolitaine", " Paris"]
 
-def searching(parametre):
-    """Here we searching from Python modul(geopy.geocoders)"""
-    """address from the input from html page"""
-
-    geocoder = Nominatim(user_agent="app.py")
-    #parametre is data recup from data()
-    
-    location = geocoder.geocode(parametre, True, 30)
-    localisation = location.address
-    localisation = str(localisation)
-
-    #define data from geopy.geocoders into var
-    a = location.address
-    b = location.latitude
-    c = location.longitude
-
-    return a, b, c
-
-
 
 
                  
