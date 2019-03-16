@@ -16,9 +16,12 @@ import requests
 import wikipediaapi
 import random
 import time
-from conteneur import *
-from decide import *
+
 from parsage import *
+from tchat_analyse import *
+
+
+from contains import conteneur
 
 
 app = Flask(__name__)
@@ -42,6 +45,33 @@ def home():
     return render_template("home.html",title_page=title_page)
 
 
+
+
+@app.route('/tchat')
+def tchat():
+    """Here we just display home page"""
+
+    return render_template("tchat.html")
+
+
+
+@app.route('/reponse', methods=["GET", "POST"]) 
+def reponse():
+    
+    question = request.form['data']
+
+    question1 = lower(question)
+
+    print(question1)
+    reponse = ""
+    return jsonify({'data':reponse})
+
+
+@app.route('/image', methods=["GET", "POST"]) 
+def image():
+
+    image = ""
+    return jsonify({'data':image})
 
 
 
@@ -128,7 +158,7 @@ def data():
         var = searching(dernier_mot)
        
         LISTE.append("<div style='font-style:italic;font-size:1.5em;color:black;'><strong>Chat alors une addresse trouvée: </strong></div>")
-        LISTE.append("<div style='font-size:1.5em; color:black;'><strong>{}</strong></div>".format(var[0]))
+        LISTE.append("<div style='font-size:1.5em; color:black;'><strong>{}</strong></div>".format(var))
         LISTE.append("<br>")
         
         return jsonify({'data':LISTE})
