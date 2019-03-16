@@ -1,17 +1,17 @@
 # GrandCat1
 
-#defi : ok tu fini les 2 pages + le tchat avant le cours 
 
-#ps ne parle plus jamais au bot ia ! eliza tu te confie et elle te sort as-tu un probleme psychologique ? et cleverbot lui cherche a te pecho.. ia de merde
 
-#repare heroku 
+1 finir la page
 
-#integre les phrase d'eliza et de cleverbot dans ton chat
+2 faire la 2eme page et y mettre un form
 
-#remettre l'extend et tout mettre dans les bon dossier
+3 faire runserver en conséquence
 
-#refaire une page avec son form
+4 parse l'api wikipedia avec les formats dadresse ( 4eme etape rue et libélé)
 
-#oublie pas les non
+5 repare heroku 
 
-#oublie pas a chaque etape de la convers faut changer de dossier sinon ca sera trop long ex: debut convers terme == ca va ? oui merci et toi ? oui ca va fin premiere etape ok ? et met des emoticones dans le cadre
+6 tchat
+
+
