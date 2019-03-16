@@ -1,12 +1,11 @@
 # GrandCat1
 
 
+1 faire run et tchat
 
-1 finir la page
+2 ya un bug api
 
-2 faire la 2eme page et y mettre un form
-
-3 faire runserver en conséquence
+3 pour le truk map faire juste bonjour
 
 4 parse l'api wikipedia avec les formats dadresse ( 4eme etape rue et libélé)
 
@@ -14,4 +13,6 @@
 
 6 tchat
 
+7 tout remettre a leur place
 
+8 les height sont pas repsonsive mais sinon ca fait moche sans rien a linté ils sont applatit donc chpas un vw = 600 lignes 
