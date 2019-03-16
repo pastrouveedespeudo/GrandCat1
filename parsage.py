@@ -2,6 +2,7 @@ import requests
 
 from urllib.request import Request, urlopen
 from bs4 import BeautifulSoup
+from geopy.geocoders import Nominatim
 
 def search_dico(data):
 
@@ -113,17 +114,33 @@ def parsing_texte(data):
                 pass
             else:
                 yoda.append("".join(j))
-        print(yoda[-1])
+     
         return yoda[-1]
 
     else:
-        print(data)
+        
         return data
 
 
 
 
+def searching(parametre):
+    """Here we searching from Python modul(geopy.geocoders)"""
+    """address from the input from html page"""
 
+    geocoder = Nominatim(user_agent="run.py")
+    #parametre is data recup from data()
+    
+    location = geocoder.geocode(parametre, True, 30)
+    localisation = location.address
+    localisation = str(localisation)
+
+    #define data from geopy.geocoders into var
+    a = location.address
+    b = location.latitude
+    c = location.longitude
+
+    return a, b, c
 
 
 
