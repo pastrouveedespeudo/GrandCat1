@@ -18,7 +18,7 @@ import random
 import time
 from conteneur import *
 from decide import *
-
+from parsage import *
 
 
 app = Flask(__name__)
@@ -61,194 +61,22 @@ def home():
     title_page = "HOME"
     return render_template("home.html",title_page=title_page)
 
-def bot(entrance):
-    entrance = entrance.lower()
-
-    no_adresse = ""
-    
-    print(entrance)
-
-
-    comment_ca_va = phase_une(entrance)
-    
-    amorcage = amorce(entrance)
-
-    vous = q_vous(entrance)
-
-    phase_uno = phase_1_decide(amorcage,
-                   comment_ca_va,
-                   vous,
-                   entrance)
-
-    if phase_uno != "oups y'a eu une erruer":
-        no_adresse = True
-
-    elif phase_uno != "oups y'a eu une erruer":
-        no_adresse = False
-
-
-
-    return no_adresse, entrance, phase_uno
-
-
-
-@app.route('/wiki', methods=["POST"]) 
-def wiki():
-    b = ""
-    liste = [[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]]
-    data_wiki = request.form['data']
-
-    entry = bot(data_wiki)
-    if entry[0] == True:
-        reponse = entry[2]
-        
-        return jsonify({'data':reponse})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    else:
-
-        nettoyage = apostrohpe(data_wiki)
-        dernier_mot = parsing_texte(nettoyage)
-        
-        search = searching(dernier_mot)
-
-
-        c = 0
-        for i in search[0]:
-            
-            if i == ",":
-                c+=1
-
-            else:
-                liste[c].append(i)
-                
-        
-        c1 = 0
-
-        parsing_list = []
-        parsing_list_2 = []
-
-        no_number = ""
-        no_country = ""
-
-        integer = False
-
-        for i in liste:
-            i = "".join(i)
-      
-
-            for j in i:
-                try:
-                    j = int(j)
-                    if type(j) == int:
-
-                        integer = True
-                except:
-                    pass
-
-            if integer == True:
-                pass
-            else:
-                parsing_list.append(i)
-                
-            integer = False
-
-
-
-        country = False
-        for i in parsing_list:
-       
-            if i == []:
-                pass
-
-            else:
-                for j in LISTE_PAYS:
-                    if j == i:
-                        country = True
-                
-                if country == True:
-                    pass
-
-                else:
-                    parsing_list_2.append(i)
-                    
-            country = False
-
-
-
-        parsing_list_2 = parsing_list_2[1:]
-        for i in parsing_list_2:
-            if i == "":
-                pass
-         
-            else:
-                print(i)
-                wiki_wiki = wikipediaapi.Wikipedia('fr')
-                page_py = wiki_wiki.page('{}'.format(i[1:]))
-                print(page_py)
-                existe = page_py.exists()
-                if existe == True:
-                    break
-
-
-        sentence_from_grandpy = ["Savez tu que :", "T'avais-je dis que :",
-                                 "Une fois on m'a dit que :"]
-        
-
-        choix = random.choice(sentence_from_grandpy)
-        try:
-            page = ("<strong>" + str(choix) + ":" +"</strong>" + "<br>" + str(page_py.sections[0:200]) + "...")
-        except UnboundLocalError:
-            page = "<strong>Oups GrandCat ne trouve rien a dire !</strong>" + "<br>"
-
-        time.sleep(3)
-        if data_wiki:
-            return jsonify({'data':page})
-
-
 
 
 @app.route('/data', methods=["POST"])
 def data():
     """Here, we just recup data with request form"""
     """from jquerry function() who define content from input"""
-    time.sleep(3)
+
     data = request.form['data']
-    time.sleep(3)
+
     nettoyage = apostrohpe(data)
+
+    
     dernier_mot = parsing_texte(nettoyage)
 
+    print(dernier_mot)
 
-     
-    
-    
     date = datetime.now()
     date = str(date)
     
@@ -263,8 +91,8 @@ def data():
         
         var = searching(dernier_mot)
    
-        LISTE.append("<div style='font-style:italic'><strong>Addresse trouvée: </strong></div>")
-        LISTE.append("<div><strong>{}</strong></div>".format(var))
+        LISTE.append("<div style='font-style:1em italic; color:black;'><strong>chat alors une addresse trouvée: </strong></div>")
+        LISTE.append("<div style='font-style:1em; color:black;'><strong>{}</strong></div>".format(var[0]))
         LISTE.append("<br>")
         
         return jsonify({'data':LISTE})
@@ -274,82 +102,7 @@ def data():
     return jsonify({'error':'...'})
 
 
-def parsing_texte(data):
-    """Here we'll go to parsing data"""
-    """if user input sentences: Salut GrandPY ! Est-ce que tu connais l'adresse de"""
-    """we juste take the last word from the sentece"""
 
-    liste = []
-    liste2 = [[],[],[],[],[],[],[],[],[],[],[],[],[]]
-
-    
-    phrase_accroche = "Salut GrandPY ! Est-ce que tu connais le adresse"
-    a = str(data).find(str(phrase_accroche))
-
-    if a >= 0 :
-        mot = apostrohpe(data)
-        liste.append(mot)
-
-        c=0
-        for i in liste:
-            for j in i :
-                liste2[c].append(j)
-                if j == " ":
-                    c+=1
-
-        c=0
-        for i in liste2:
-            if i == "" or i == [] :
-               pass
-            else:
-                c+=1
-        liste2 = liste2[0:c]
-        dataa = "".join(liste2[-1])
-        LISTE_PHRASE.append(dataa)
-        
-        
-
-        return dataa
-
-    else:
-   
-        return data
-
-
-
-def apostrohpe(data):
-
-   
-    phrase_accroche = "Salut GrandPY ! Est-ce que tu connais l'adresse"
-    
-    a = str(data).find(str(phrase_accroche))
-    
-    if a >= 0:
-        
-        liste = []
-        for i in data:
-            liste.append(i)
-      
-
-        mot = []
-        c = 0
-        for i in liste:
-            
-            if liste[c] == "'":
-                liste[c] = "e"
-                mot.append(liste[c])
-                mot.append(" ")  
-            else:
-                mot.append(liste[c])    
-                
-            c+=1
-
-        mot = "".join(mot)
-
-        return mot
-
-    else:
-        return data
 
 
     
@@ -364,5 +117,3 @@ if __name__== "__main__":
 
     app.run(debug=True)
    
-     
-
