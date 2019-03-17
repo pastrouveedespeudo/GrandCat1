@@ -74,7 +74,7 @@ def effacer():
 def reponse():
     
     question = request.form['data']
-    print(question)
+
     question1 = lower(question)
 
     
@@ -114,8 +114,8 @@ def img():
             image = str(i)
 
 
-    retour = "<img src='static/convers/one/{}'/>".format(image)
-    print(retour)
+    retour = "<img src='static/convers/one/{}' style='width:100%; height:300px;'/>".format(image)
+
     return jsonify({'data':retour})
 
 
