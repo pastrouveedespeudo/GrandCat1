@@ -9,6 +9,7 @@
 #ah oui sinon comme lancien truk, faire les best phrases, trouve comment recuperé des truk diroku sur ton pc (ecris les convers dans un fichier txt)
 
 
+
 1 tchat
 
 7 tout remettre a leur place avant de voir kev
