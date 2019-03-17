@@ -38,8 +38,7 @@ LOCALISATION_WIKI = []
 LISTE_PAYS = [" France", " France métropolitaine", " Paris"]
 
 
-
-ETAPE = []
+ETAPE = [1]
 
 CONVERSATION = []
 
@@ -71,37 +70,18 @@ def effacer():
 
 
 
-
-
 @app.route('/reponse', methods=["GET", "POST"]) 
 def reponse():
     
     question = request.form['data']
-
+    print(question)
     question1 = lower(question)
 
     
     reponse = phase_1_decide(question1, ETAPE)
     
-    image(reponse, ETAPE)
-    
+
     #print(ETAPE)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -116,15 +96,27 @@ def reponse():
     return jsonify({'data':CONVERSATION})
 
 
-
-def image(entree, etape):
-
-    decide_im1(entree, etape)
+@app.route('/img', methods=["GET", "POST"])
+def img():
 
 
+    img = request.form['data']
+    
+    picture = decide_im1(img, ETAPE)
 
 
+    image = ""
 
+    for i in picture:
+        if i == None:
+            pass
+        else:
+            image = str(i)
+
+
+    retour = "<img src='static/convers/one/{}'/>".format(image)
+    print(retour)
+    return jsonify({'data':retour})
 
 
 
