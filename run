@@ -77,11 +77,16 @@ def reponse():
 
     question1 = lower(question)
 
-    
     reponse = phase_1_decide(question1, ETAPE)
     
+    rep = etape2(question)
 
-    #print(ETAPE)
+    if rep[1] == True:
+        CONVERSATION.append("<p style='font-style:italic;color:black;font-size:1.5em;'>" \
+                        + str(question) +"<br>"\
+                        + str(rep[0]) + "</p><br>")
+
+        return jsonify({'data':CONVERSATION})
 
 
 
@@ -113,10 +118,12 @@ def img():
         else:
             image = str(i)
 
+    if image == "":
+        return jsonify({'data':"<img src='static/convers/one/kikouetsalut.jpg' style='width:100%; height:290px;'/>"})
+    else:
+        retour = "<img src='static/convers/one/{}' style='width:100%; height:290px;'/>".format(image)
 
-    retour = "<img src='static/convers/one/{}' style='width:100%; height:300px;'/>".format(image)
-
-    return jsonify({'data':retour})
+        return jsonify({'data':retour})
 
 
 
