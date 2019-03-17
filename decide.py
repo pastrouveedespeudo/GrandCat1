@@ -161,44 +161,44 @@ def phase_1_1_decide():
 
 
 
+def picture(entrance, number, path):
 
 
+    if entrance == number:
+        
+        os.chdir(path)
+        liste = os.listdir()
+        image = random.choice(liste)
 
+        return str(image)
+            
 
 def decide_im1(entree, etape):
-    
+
 
     if etape[-1] == 1:
-        print("oui")
-    
+
         c = amorce(entree)
+
+        bnj = picture(c[1], 1, r"C:\Users\jeanbaptiste\env\fbapp\convers\one\bonjour")
         
-        if c[1] == 1:
-            pass
+        slt = picture(c[1], 2, r"C:\Users\jeanbaptiste\env\fbapp\convers\one\salut")
+        
+        cc = picture(c[1], 3, r"C:\Users\jeanbaptiste\env\fbapp\convers\one\coucou")
 
-        if c[1] == 1:
-            pass
+        hey = picture(c[1], 4, r"C:\Users\jeanbaptiste\env\fbapp\convers\one\hey")
 
+        yo = picture(c[1], 5, r"C:\Users\jeanbaptiste\env\fbapp\convers\one\bonjour")
+            
+        hello = picture(c[1], 6, r"C:\Users\jeanbaptiste\env\fbapp\convers\one\hello")
+            
+        kikou = picture(c[1], 7, r"C:\Users\jeanbaptiste\env\fbapp\convers\one\salut")
 
-        if c[1] == 1:
-            pass
-
-        if c[1] == 1:
-            pass
-        if c[1] == 1:
-            pass
-
-        if c[1] == 1:
-            pass
-
-        if c[1] == 1:
-            pass
-
-
+    return bnj, slt, cc, hey, yo, hello, kikou
 
         
-        os.chdir("convers\one")
-        liste = os.listdir()
+        
+
 
 
     
