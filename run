@@ -18,7 +18,7 @@ import random
 import time
 
 from parsage import *
-from requete import *
+from conteneur_requete import *
 from choix_phrase import *
 
 
@@ -77,20 +77,14 @@ def reponse():
     question = request.form['data']
     question1 = question.lower()
     
-    reponse = choix_phrase()
     
-
-    with open("requete.py", "a") as file:
-        file.write(("    a = [['" + str(question1) + "'],"))
-        
+    liste = lecture_liste(question1)
+    print(liste)
 
 
+    CONVERSATION.append((str(liste)+"<br>"))
 
-        file.write(']')
-
-
-
-    return jsonify({'data':""})
+    return jsonify({'data':CONVERSATION})
 
 
 
