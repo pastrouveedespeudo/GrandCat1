@@ -6,9 +6,7 @@
 
 #et on dit dis moi en plus comme eliza et les question comme clever 
 
-#et rendre les images plus vivante 
-
-
+#ah oui sinon comme lancien truk, faire les best phrases, trouve comment recuperé des truk diroku sur ton pc (ecris les convers dans un fichier txt)
 
 
 1 tchat
