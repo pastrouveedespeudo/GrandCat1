@@ -1,4 +1,6 @@
 from conteneur import *
+from conteneur2 import *
+
 from contains import conteneur_rep 
 import random
 import os
@@ -10,8 +12,10 @@ def phase_une(entree):
     #ex : ca va ?
     
     for i in debut[8]:
-
-        if i == entree:
+        
+        pol = str(entree).find(str(i))
+        
+        if pol >= 0:
             mot_commencement_politesse = True
             break
             
@@ -89,36 +93,15 @@ def amorce(entree):
 
 
     
+def mot_entree(nombre):
+    dico = {
+        1:"bonjour", 2:"salut",3:"coucou", 4:"hey", 5:"yo", 6:"hello", 7:"kikou"
+        }
 
-    
-def rep_avec_question(entree):
-    pass
-
-
-
-
-def fin_debut_de_conversation():
-    pass
+    a = random.choice
+    return dico[nombre]
 
 
-
-
-
-
-
-def toutes_les_3phrases():
-    pass
-#return blagounettte genre un truk rien a voir et on dis oups trompé
-
-def enregistrement():
-    pass
-#dans un fichier comme ca on recup la convers
-
-
-
-
-
-#-----------------------------------------
 
 def phase_1_decide(entree, etape):
 
@@ -130,16 +113,74 @@ def phase_1_decide(entree, etape):
 
     c = amorce(entree)
 
-    #print(a,b,c)
+    print(a,b,c)
+
+    if a == False:
+        #juste bonjour
+        rep = conteneur()
+
+        choix = random.choice(rep[c[1]])
+
+        etape.append(1)
+
+        return choix
 
 
-    rep = conteneur()
+    elif a == True and b == False:
+        #bonjour ca va ?
 
-    choix = random.choice(rep[c[1]])
+        rep = conteneur2()
 
-    etape.append(1)
+        c = amorce(entree)
+        mot_amorce = mot_entree(c[1])
+        print(mot_amorce)
+        
 
-    return choix
+        rep_tchat = random.choice(rep)
+        print(rep_tchat)
+
+
+        la_rep = mot_amorce + " " + rep_tchat
+        
+        return la_rep
+
+
+
+
+
+
+
+
+    
+    elif b == True:
+        pass
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -151,6 +192,11 @@ def phase_1_1_decide():
 
     if vous == True:
         pronom = "vous"
+
+
+
+
+
 
 
 
