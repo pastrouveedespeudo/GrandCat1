@@ -1,8 +1,15 @@
 # GrandCat1
 
-#ohhh putin jtai a 2 doigt de matté paddington maius ya captain marvel jai attendu toute la journée pour faire le tchat mais la chui ko
+#ok finir les politesses, 
 
-#demain fait le 
+#et ensuite ca va etre trop long sinon ben trouve un truk avec les additions si question +1 si pas question -2 alors on met une des phrases aleatoire si avant on a dit ca on demande info des truk comme ca sinon on reprend les phrases 
+
+#et on dit dis moi en plus comme eliza et les question comme clever 
+
+#et rendre les images plus vivante 
+
+
+
 
 1 tchat
 
