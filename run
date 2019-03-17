@@ -18,11 +18,12 @@ import random
 import time
 
 from parsage import *
-from tchat_analyse import *
+from requete import *
+from choix_phrase import *
 
 
-from contains import conteneur
-from decide import *
+
+
 import os
 
 
@@ -74,31 +75,31 @@ def effacer():
 def reponse():
     
     question = request.form['data']
-
-    question1 = lower(question)
-
-    reponse = phase_1_decide(question1, ETAPE)
+    question1 = question.lower()
     
-    rep = etape2(question)
-
-    if rep[1] == True:
-        CONVERSATION.append("<p style='font-style:italic;color:black;font-size:1.5em;'>" \
-                        + str(question) +"<br>"\
-                        + str(rep[0]) + "</p><br>")
-
-        return jsonify({'data':CONVERSATION})
-
-
-
-
-
-
-
-    CONVERSATION.append("<p style='font-style:italic;color:black;font-size:1.5em;'>" \
-                        + str(question) +"<br>"\
-                        + str(reponse) + "</p><br>")
+    reponse = choix_phrase()
     
-    return jsonify({'data':CONVERSATION})
+
+    with open("requete.py", "a") as file:
+        file.write(("    a = [['" + str(question1) + "'],"))
+        
+
+
+
+        file.write(']')
+
+
+
+    return jsonify({'data':""})
+
+
+
+
+
+
+
+
+
 
 
 @app.route('/img', methods=["GET", "POST"])
@@ -107,23 +108,8 @@ def img():
 
     img = request.form['data']
     
-    picture = decide_im1(img, ETAPE)
-
-
-    image = ""
-
-    for i in picture:
-        if i == None:
-            pass
-        else:
-            image = str(i)
-
-    if image == "":
-        return jsonify({'data':"<img src='static/convers/one/kikouetsalut.jpg' style='width:100%; height:290px;'/>"})
-    else:
-        retour = "<img src='static/convers/one/{}' style='width:100%; height:290px;'/>".format(image)
-
-        return jsonify({'data':retour})
+  
+    return jsonify({'data':""})
 
 
 
