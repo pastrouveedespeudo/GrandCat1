@@ -1,6 +1,6 @@
 # GrandCat1
 
-#ok finir les politesses, 
+#merde jme suis perdu va bouffer et reflechis faut arrivé a faire le truk den bas et commencer a ecrire pleins de phrase
 
 #et ensuite ca va etre trop long sinon ben trouve un truk avec les additions si question +1 si pas question -2 alors on met une des phrases aleatoire si avant on a dit ca on demande info des truk comme ca sinon on reprend les phrases 
 
