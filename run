@@ -22,6 +22,8 @@ from tchat_analyse import *
 
 
 from contains import conteneur
+from decide import *
+import os
 
 
 app = Flask(__name__)
@@ -35,6 +37,11 @@ LOCALISATION_WIKI = []
 
 LISTE_PAYS = [" France", " France métropolitaine", " Paris"]
 
+
+
+ETAPE = []
+
+CONVERSATION = []
 
                  
 @app.route('/')
@@ -50,8 +57,19 @@ def home():
 @app.route('/tchat')
 def tchat():
     """Here we just display home page"""
-
     return render_template("tchat.html")
+
+
+@app.route('/effacer', methods=["GET", "POST"])
+def effacer():
+    eff = request.form['data']
+    CONVERSATION = []
+    
+
+
+
+
+
 
 
 
@@ -62,16 +80,58 @@ def reponse():
 
     question1 = lower(question)
 
-    print(question1)
-    reponse = ""
-    return jsonify({'data':reponse})
+    
+    reponse = phase_1_decide(question1, ETAPE)
+    
+    image(reponse, ETAPE)
+    
+    #print(ETAPE)
 
 
-@app.route('/image', methods=["GET", "POST"]) 
-def image():
 
-    image = ""
-    return jsonify({'data':image})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    CONVERSATION.append("<p style='font-style:italic;color:black;font-size:1.5em;'>" \
+                        + str(question) +"<br>"\
+                        + str(reponse) + "</p><br>")
+    
+    return jsonify({'data':CONVERSATION})
+
+
+
+def image(entree, etape):
+
+    decide_im1(entree, etape)
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
