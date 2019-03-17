@@ -1,20 +1,22 @@
 from conteneur import *
-from conteneur_rep import *
+from contains import conteneur_rep 
 import random
-
+import os
 
 def phase_une(entree):
     debut = conteneur()
 
     mot_commencement_politesse = ""
-
+    #ex : ca va ?
     
-    for i in debut[3]:
-        politesse = str(entree).find(i)
-        if politesse >= 0:
-            politessse = True
+    for i in debut[8]:
+
+        if i == entree:
+            mot_commencement_politesse = True
+            break
+            
         else:
-            politessse = False
+            mot_commencement_politesse = False
 
     return mot_commencement_politesse
 
@@ -23,7 +25,6 @@ def phase_une(entree):
 
 
 
-    
 def q_vous(entree):
 
     politesse = ""
@@ -31,8 +32,8 @@ def q_vous(entree):
     vous = str(entree).find("vous")
     if vous >= 0:
         politesse = True
-
-        
+    else:
+        politesse = False
     return politesse
     #si use politesse alors use polistesse
 
@@ -83,7 +84,6 @@ def amorce(entree):
         liste += 7
             
 
-
     return bj, liste
     #si bonjour alors on rep bonjour sinon autre hasard
 
@@ -91,17 +91,8 @@ def amorce(entree):
     
 
     
-
-
-
-
-
-
-
-
-
-
-
+def rep_avec_question(entree):
+    pass
 
 
 
@@ -111,20 +102,8 @@ def fin_debut_de_conversation():
 
 
 
-def reponse():
-    pass
 
 
-
-
-
-def rep_bonjour(entree):
-    pass
-def rep_sans_question(entree):
-    pass
-
-def rep_avec_question(entree):
-    pass
 
 
 def toutes_les_3phrases():
@@ -141,31 +120,102 @@ def enregistrement():
 
 #-----------------------------------------
 
-def phase_1_decide(amorcage,
-                   comment_ca_va,
-                   vous,
-                   entrance):
+def phase_1_decide(entree, etape):
 
 
-    try:
-        amorce = conteneur()
 
-        if vous == False:
-            pronom ="tu"
-            
-        choix_phrase = random.choice(amorce[amorcage[1]])
-        print(choix_phrase)
+    a = phase_une(entree)
+
+    b = q_vous(entree)
+
+    c = amorce(entree)
+
+    #print(a,b,c)
+
+
+    rep = conteneur()
+
+    choix = random.choice(rep[c[1]])
+
+    etape.append(1)
+
+    return choix
+
+
+
+
+def phase_1_1_decide():
+    
+    if comment_ca_va == True:
+        pass
+
+    if vous == True:
+        pronom = "vous"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def decide_im1(entree, etape):
+    
+
+    if etape[-1] == 1:
+        print("oui")
+    
+        c = amorce(entree)
         
-        return choix_phrase
+        if c[1] == 1:
+            pass
+
+        if c[1] == 1:
+            pass
+
+
+        if c[1] == 1:
+            pass
+
+        if c[1] == 1:
+            pass
+        if c[1] == 1:
+            pass
+
+        if c[1] == 1:
+            pass
+
+        if c[1] == 1:
+            pass
+
+
+
         
-    except:
-        return "oups y'a eu une erruer"
-##
-##    if comment_ca_va == True:
-##        pass
-##
-##    if vous == True:
-##        pronom = "vous"
+        os.chdir("convers\one")
+        liste = os.listdir()
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
