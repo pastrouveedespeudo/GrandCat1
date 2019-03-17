@@ -70,11 +70,15 @@ def conteneur():
     yo = []
  
 
-    politesse = ["ca va",
+    politesse = ["ca va ?",
+                 "cava",
+                 "ca va",
                  "comment tu vas",
                  "comment allez vous",
                  "tu vas bien ?",
-                 "vous allez bien ?"
+                 "vous allez bien ?",
+                 "comment vas tu ?",
+                 "bien ou bien ?",
 
         ]
    
@@ -83,7 +87,7 @@ def conteneur():
                        
     return debut, bonjour, salut,\
            coucou, hey,\
-           yo, hello, kikou,politesse
+           yo, hello, kikou, politesse
            
 
 
