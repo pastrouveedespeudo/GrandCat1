@@ -113,7 +113,7 @@ def phase_1_decide(entree, etape):
 
     c = amorce(entree)
 
-    print(a,b,c)
+    #print(a,b,c)
 
     if a == False:
         #juste bonjour
@@ -133,11 +133,11 @@ def phase_1_decide(entree, etape):
 
         c = amorce(entree)
         mot_amorce = mot_entree(c[1])
-        print(mot_amorce)
+        #print(mot_amorce)
         
 
         rep_tchat = random.choice(rep)
-        print(rep_tchat)
+        #print(rep_tchat)
 
 
         la_rep = mot_amorce + " " + rep_tchat
@@ -145,17 +145,72 @@ def phase_1_decide(entree, etape):
         return la_rep
 
 
-
-
-
-
-
-
     
     elif b == True:
         pass
 
-    
+
+
+
+
+def etape2(entree):
+
+    entrance = conteneur2()
+
+    ok = ""
+
+    for i in entrance[1]:
+        cherche = str(entree).find(str(i))
+        print(cherche)
+        if cherche >= 0:
+            ok = True
+
+    if ok == True:
+        reponse = random.choice(entrance[2])
+        print(reponse)
+        return reponse, True
+
+    else:
+        return "", False
+
+    return reponse, True
+
+
+    #ok ta pensée : plusieurs issues, mais que quelques une sont correctes;
+            #aller dans le meme sens ou pas
+            #soit la personne cherche un comme elle soit un différent
+            #selon ce quelle a deja.
+            #prend le groupe de 2 personnes different la brune et la blonde le timide et lextra
+            #prend le  groupe des 3 personnes lintello le bo et le sociable
+            #au delas c un group de pote pas damis
+            #chaque groupe damis va chercher dautre groupe soit en paix soit en conflit
+            #conflit afiin de changer ca va casser le groupe
+            #ou le renforcer
+
+            #approche de groupe == ca va casser le groupe forcement
+            #donc tu pourras jamais faire ca et ca depend des personnalités aussi
+            
+            #donc la tu dois guidée l'echange mais je sais pas comment, normalement c avec des questions
+            #en "soumettant" ou en montrant on est pareil
+            #donc la faut pas soumettre ni sucer il faut poser des questions en donnant donc
+            #faut prendre et donner sans que ce soit visible
+        #utilise les mots généralisés
+
+        #ok imite juste eliza^^
+
+    def essais2():
+        pass
+    #si on me pose une question je dois reprendre les mots et ajouter une petite touche
+
+
+    def essais1():
+        pass
+    #mais avant on doit faire parler et pour faire parler c avec des questions ouverte
+
+
+    def essais():
+        pass
+    #on prend la meilleur phrase
 
 
 
