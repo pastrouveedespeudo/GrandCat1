@@ -1,5 +1,7 @@
 from .requete1 import *
+from .requete2 import *
 import os
+import random
 
 def lecture_liste(entree):
 
@@ -24,13 +26,16 @@ def tri_liste(entrance):
 
     liste = []
     for i in entrance:
+        liste.append(i)
+    for i in liste:
         i = i.split()
-        liste.extend(i)
+        
   
     dico = {}
 
     c = 0
     for i in liste:
+        
         dico[i] = -1
 
 
@@ -38,30 +43,59 @@ def tri_liste(entrance):
         for cle, valeur in dico.items():
             if i == cle:
                 dico[i] += 1
-
-    
-
     return dico
 
-def analyse_dico(entree):
+
+
+def analyse_dico(entree, premiere_entree):
+
+    try:
+        dico_best = max(entree)
+    except:
+        dico_best = dico_best_empty(premiere_entree)
+
+
+
+        
+    return dico_best
+
+
+
+def dico_best_empty(entree):
     print(entree)
 
+    #1 une anecdote
+    #random.choice(3)
+
+    a = cont2()
+    return a
 
 
+    #2 une question
 
+    #3 on reprend la reponse et on fait comme eliza
 
+    #sortie = str(entree)
+    
+    #return sortie
+    #on doit ajouter la reponse dans notre truk
 
+def cont2():
+    reponse = requete2()
 
+    longueur_conteneur2 = len(reponse) -1
+    hasard = random.randint(0, longueur_conteneur2)
 
+    reponse[hasard]
+    
+    return reponse[hasard]
+    
+#soit faire un systeme de liste avec le conteneur appropriere
+#on reserve les oui, oui je saivais ouais et non je savais pas
+#et on met if question1 == oui ect
+#on reprend le dernier conteneur et on on met +1 pour non + 2 pour oui
 
-
-
-
-
-
-
-
-
+#ohhhhhhh bonneuh mere y'a american gods
 
 
 
