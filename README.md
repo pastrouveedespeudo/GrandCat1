@@ -1,6 +1,8 @@
 # GrandCat1
 
+#faire le lien entre home et tchat ! et on a le droit denregistrer les convers sans demandé
 
+#allez sur eliza et cleverbot et dire que sté pour rire
 
 1 tchat
 
