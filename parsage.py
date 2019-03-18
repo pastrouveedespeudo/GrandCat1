@@ -1,8 +1,26 @@
 import requests
-
 from urllib.request import Request, urlopen
 from bs4 import BeautifulSoup
 from geopy.geocoders import Nominatim
+
+def no_ponctuation(entrance):
+    ponct = ["?","!", ".", ","]
+    new = []
+    for i in entrance:
+        if i == "?" or i == "!" or i ==".":
+                pass
+        else:
+            new.append(i)
+                
+    print("".join(new[:-1]))
+    try:
+        if new[-1] == " ":
+            return "".join(new[:-1])
+        else:
+            return "".join(new)
+    except:
+        pass
+    return "".join(new)
 
 def search_dico(data):
 
@@ -33,10 +51,10 @@ def apostrohpe(data):
 
     liste = []
     liste_dico = [[],[],[],[],[],[],[],[],[],[],[],[],[],[]]
-    phrase_accroche = "Salut GrandPY ! Est-ce que tu connais l'adresse"
+    phrase_accroche = "Salut GrandPY  Est-ce que tu connais l'adresse"
     
     a = str(data).find(str(phrase_accroche))
-    
+
     if a >= 0:
         
         liste = []
@@ -99,11 +117,11 @@ def parsing_texte(data):
     
     c = 0
     
-    phrase_accroche = "Salut GrandPY ! Est-ce que tu connais la adresse"
+    phrase_accroche = "Salut GrandPY  Est-ce que tu connais la adresse"
     a = str(data).find(str(phrase_accroche))
 
     if a >= 0 :
-
+        print(a)
         for i in data:
             liste2[c].append(i)
             if i == " ":
@@ -128,7 +146,7 @@ def searching(parametre):
     """Here we searching from Python modul(geopy.geocoders)"""
     """address from the input from html page"""
 
-    geocoder = Nominatim(user_agent="app.py")
+    geocoder = Nominatim(user_agent="run.py")
     #parametre is data recup from data()
     
     location = geocoder.geocode(parametre, True, 30)
@@ -141,6 +159,15 @@ def searching(parametre):
     c = location.longitude
 
     return a, b, c
+
+
+
+
+
+
+
+
+
 
 
 
