@@ -80,6 +80,38 @@ def img():
     return jsonify({'data':""})
 
 
+@app.route('/geo', methods=["GET", "POST"]) 
+def geo():
+    data_wiki = request.form['data']
+    print(data_wiki,"0000")
+
+    data_no_ponctuation = no_ponctuation(data_wiki)
+
+    nettoyage = apostrohpe(data_no_ponctuation)
+   
+    dernier_mot = parsing_texte(nettoyage)
+    
+    search = searching(dernier_mot)
+
+    page = search[1]
+    return jsonify({'data':page})
+
+
+@app.route('/geo2', methods=["GET", "POST"]) 
+def geo2():
+    data_wiki = request.form['data']
+
+
+    data_no_ponctuation = no_ponctuation(data_wiki)
+
+    nettoyage = apostrohpe(data_no_ponctuation)
+   
+    dernier_mot = parsing_texte(nettoyage)
+    
+    search = searching(dernier_mot)
+    
+    page = search[2]
+    return jsonify({'data':page})
 
 @app.route('/wiki', methods=["GET", "POST"]) 
 def wiki():
@@ -117,7 +149,7 @@ def wiki():
     choix = random.choice(sentence_from_grandpy)
 
     element = "".join(liste[2][:-1])
-    print(element)
+    
     wiki_wiki = wikipediaapi.Wikipedia('fr')
     page_py = wiki_wiki.page('{}'.format(element))
     existe = page_py.exists()
@@ -125,7 +157,7 @@ def wiki():
         page = ("<p style='color:black; font-size:1.5em;'><strong>" + str(choix)\
                 +"</strong>" + "<br>"\
                 + str(page_py.sections[0:200]) + "...</p>")
-        
+  
         return jsonify({'data':page})
 
     else:
