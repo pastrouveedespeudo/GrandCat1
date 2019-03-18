@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,7 +21,7 @@
   <link href="static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
   <!-- Custom styles for this template -->
-
+  <link type="text/css" rel="stylesheet" href="static/styles/css/csscss.css">
 
 </head>
 
@@ -31,89 +32,13 @@
 
   <div class="masthead">
 
-  
-  <!-- logo -->
-  <style>
-  
 
-  #logoo{
-          margin-top:10px;
-          border-radius:10px;
-          width:15%;
-          margin-left:10px;
-          display: flex;
-          min-width:30px;
-          min-height:30px;
-          border:3px solid black;
-        }
-    
- #tourne{
-  margin-top:10px;
-   border-radius:10px;
-   width:30%;
-   float:right;
-
-   
-   display: flex;
-          
-
-   min-width:50px;
-   min-height:50px;
-   max-width:120px;
-   border:3px solid black;
-   
-   max-height:200px;
- }
- 
- #map{
-    width:100%;
-    text-align:center;
-     }
-
-     
-    #payschat{
-    width:25%;
-    height:70%;
-
- }
-
-
-
-                      #discussion{
-                      border: 1px solid black;
-                      width: 100%;
-                      overflow:auto;
-                      height:300px;
-                      float:left;
-                      background-color:# bd6242;
-                      
-                  }
-
-
-
-                  #image{
-                      position:relative;
-                      border: 1px solid black;
-                      width: 100%;
-                      height:550px;
-                      overflow:auto;
-                      float:left;
-                      background-color:# bd6242;
-                  }
-
-  </style>
-  
-
-
-  
-    <div class="masthead-bg"></div>
+    <div class="masthead-bg" style="border:#cd9557;"><img src="static/images/image1.jpg" id="logoo" alt="logo"/></div>
 
     <div class="container col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <div class="row">
         
-            <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
-                <img src="static/images/image1.jpg" id="logoo" alt="logo"/>
-            </div>
+
 
             
         </div>
@@ -130,7 +55,6 @@
           <div class="masthead-content text-white py-5 py-md-0">
 
             <h1 class="mb-3">I'm Grand Cat !</h1>
-
 
             <form id="form_raise">
              <div class="container col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -149,12 +73,6 @@
             </div>
 
             </form>
-
-            <style>
-            #sub{
-                margin-left:auto;
-            }
-            </style>
 
 
 
@@ -176,7 +94,7 @@
              </form>
 
 
-
+            <p>Ai-je l'autorisation denregistrer la conversation ? oui, non</p>
                       
                  
         </div>
@@ -202,7 +120,7 @@
   <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Custom scripts for this template -->
-
+  <script src="static/styles/js/jstchat.js"></script>
 
 </body>
 
@@ -211,256 +129,24 @@
 
 
 
-<script>
 
 
 
 
 
-MONCADRE = []
 
-$(document).ready(function(){
-  
-  $("form").on("submit", function(e){
-      
-      $.ajax({
-          data:{
-              data:$("#idRecupInfo").val(),
 
-          },
-          type:"POST",
-          url:"/reponse",
 
 
-      })
-      .done(function(data){
 
-          if (data.error){
-              $("#monCadreAlert").text(data.error);
-              $("#image");
-          }
-          else{
-              $("#image").html(data.data);
-              $("#monCadreAlert");
-            
-              
-          };
 
 
-      });
-      
 
-      e.preventDefault();
 
-      
-  });
-});
 
 
 
 
-
-
-$(document).ready(function(){
-  
-  $("form").on("submit", function(e){
-      
-      $.ajax({
-          data:{
-              data:$("#idRecupInfo").val(),
-
-          },
-          type:"POST",
-          url:"/img",
-
-      })
-      .done(function(data){
-
-          if (data.error){
-              $("#monCadreAlert").text(data.error);
-              $("#discussion");
-          }
-          else{
-              $("#discussion").html(data.data);
-              $("#monCadreAlert");
-            
-              
-          };
-
-
-      });
-      
-      effacer();
-      e.preventDefault();
-
-      
-  });
-});
-
-
-
-
-
-
-function effacer(){
-  document.getElementById("idRecupInfo").value = "";
-}
-
-
-
-
-
-
-
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<style>
-
-
-
-html{height:100%}
-
-body{
-    height:100%;
-    position:relative;
-    font-family:'Source Sans Pro';
-     background-color:#cd9557;
-    }
-
-
-h1{
-    font-family:Merriweather;
-    font-weight:700;
-    font-size: 1.75vw;
-    }
-
-
-h2,h3,h4,h5,h6{
-    font-family:Merriweather;
-    font-weight:700;
-    font-size: 1.6vw;
-    }
-
-
-.masthead{position:relative;overflow:hidden;padding-bottom:15rem;z-index:2}
-
-.masthead .masthead-bg{
-	
-
-
-#map{
-  width:100%;
-  margin-top:auto;
-
-}
-#payschat{
-  width:20%;
-  height:80%;
-
-
-}
-
-
-#monCadreWiki{
-    border: 2px solid black;
-    width: 100%;
-    overflow:scroll;
-    height:150px;
-    float:left;
-}
-
-
-
-
-#monCadre{
-    position:relative;
-    border:2px solid black;
-    width: 100%;
-    height:150px;
-    overflow:scroll;
-    float:left;
-}
-
-#supp{
-
-  width:30%;
-  max-width:100px;
-}
-
-
-
-form{
-    text-align:center;
-}
-
-p{
-    text-align:center;
-}
-
-#blockinput{
-    text-align:center;
-}
-
-.classRecupInfo{
-    text-align:center;
-    font-style:italic;
-    margin:0 auto;
-}
-
-
-#image1{
-  float:right;
-}
-
-
-#c{
- float:left;
- color:red;
-}
-.formPseudo{
-    margin-top:-200;
-    margin-right:910px;
-}
-
-
-
-
-
-
-#inp{
-  float:left;
-
-}
-
-
-
-
-
-<style>
 
 
 
