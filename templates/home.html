@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
   <html lang="en">
 
@@ -244,8 +245,8 @@ $(document).ready(function(){
       
       add_favorite();
       e.preventDefault();
-      
       map();
+      stop_logo_loading();
       
   });
 });
@@ -317,7 +318,7 @@ $(document).ready(function(){
           else{
               $("#monCadreWiki").html(data.data);
               $("#monCadreAlert");
-              stop_logo_loading();
+              
               
           }
       });
@@ -385,7 +386,6 @@ function imageTourne(){
 
 
 </script>
-
 
 
 
