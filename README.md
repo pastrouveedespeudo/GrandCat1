@@ -1,8 +1,12 @@
 # GrandCat1
 
-#faire le lien entre home et tchat ! et on a le droit denregistrer les convers sans demandé
+#pep 8 avant
 
-#refaire et utiliser google map avec js et garder le code geocodi
+#refactoriser c fait sté juste que jutilisé pas lapi du coup...
+
+#faire le lien entre le tchat et main
+
+
 
 1 tchat
 
