@@ -56,7 +56,18 @@ def tchat():
 def effacer():
     eff = request.form['data']
     CONVERSATION = []
-    
+
+
+
+
+
+
+
+
+
+
+
+
 
 @app.route('/reponse', methods=["GET", "POST"]) 
 def reponse():
@@ -65,11 +76,14 @@ def reponse():
     question1 = question.lower()
 
     liste = lecture_liste(question1)
-    print(liste)
+    liste2 = tri_liste(liste)
+    analyse_dico(liste2)
 
     CONVERSATION.append((str(liste)+"<br>"))
 
     return jsonify({'data':CONVERSATION})
+
+
 
 
 @app.route('/img', methods=["GET", "POST"])
@@ -78,6 +92,25 @@ def img():
     img = request.form['data']
 
     return jsonify({'data':""})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 @app.route('/geo', methods=["GET", "POST"]) 
@@ -112,6 +145,8 @@ def geo2():
     
     page = search[2]
     return jsonify({'data':page})
+
+
 
 @app.route('/wiki', methods=["GET", "POST"]) 
 def wiki():
