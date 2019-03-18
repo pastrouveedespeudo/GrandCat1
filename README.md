@@ -19,6 +19,8 @@
 #on repond tout en ecrivant dans le fichier
 
 
+2 refaire le dossier avec __init__ et tout
+
 1 tchat
 
 7 tout remettre a leur place avant de voir kev
