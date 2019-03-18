@@ -66,7 +66,7 @@ def effacer():
 
 
 
-
+liste_oui_non = []
 
 
 @app.route('/reponse', methods=["GET", "POST"]) 
@@ -78,10 +78,13 @@ def reponse():
     liste = lecture_liste(question1)
     liste2 = tri_liste(liste)
     liste3 = analyse_dico(liste2, question1)
-
-
+    
+    liste_oui_non.append(liste3)
+    if liste_oui_non[-1][-1] != " ":
+        oui_non(question1, liste_oui_non[-1][-1])
+        #return ....
   
-
+    print(liste_oui_non)
     CONVERSATION.append((str(liste3)+"<br>"))
 
     return jsonify({'data':CONVERSATION})
