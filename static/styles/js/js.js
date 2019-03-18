@@ -38,54 +38,16 @@ clearTimeout(time);
 
 
 
-$(document).ready(function(){
-$("#formPseudo").on("submit", function(ev){
-
-$.ajax({
-  data:{
-    data:$("#idRecupPseudo").val(),
-  },
-  type:"POST",
-  url:"/login"
-
-
-})
-.done(function(data){
-
-  if (data.error){
-      $("#monCadreAlert").text(data.error);
-      $("#divPseudo");
-  }
-  else{
-      $("#divPseudo").html(data.data);
-      $("#monCadreAlert");
-      alert("fini")
-      
-      
-  }
-
-
-  });
-  map();
-  effacer();
-  ev.preventDefault();
-
-});
-});
-
 
 function map(){
 
 
-document.getElementById("map").innerHTML = ""
-document.getElementById("map").style.width = "100%"
-document.getElementById("map").style.height = "200px"
+  document.getElementById("map").innerHTML = ""
+  document.getElementById("map").style.width = "100%"
+  document.getElementById("map").style.height = "200px"
+
+
 }
-
-
-
-
-
 
 
 
@@ -234,6 +196,7 @@ function initMap(){
   liste2 = []
   
   var c = document.getElementById("monCadre");
+
   var a = c.innerText || c.textContent;
   var b = a.length;
   //console.log(a)
@@ -252,12 +215,13 @@ function initMap(){
           liste2.push(liste[i]);
       }
    };
-  //console.log(liste2)
+  console.log(liste2)
   a = Number(liste2[liste2.length -3].slice(1,-1).join(''));
-  b = Number(liste2[liste2.length -2].slice(2,-5).join(''));
+  //b = Number(liste2[liste2.length -2].slice(2,-5).join(''));
+  b = Number(liste2[liste2.length -2].slice(1,-4).join(''));
   //console.log(liste2)
-  //console.log(a)
-  //console.log(b)
+  console.log(a)
+  console.log(b)
   //console.log(liste2.length -2)
 
 
@@ -281,5 +245,6 @@ function effacer(){
 function imageTourne(){
   document.getElementById('nom-de-ta-photo').src= "l'url de ta nouvelle image";
 }
+
 
 
