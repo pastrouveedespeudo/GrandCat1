@@ -51,13 +51,15 @@ def analyse_dico(entree, premiere_entree):
 
     try:
         dico_best = max(entree)
+        return dico_best, " "
     except:
         dico_best = dico_best_empty(premiere_entree)
+        return dico_best
 
 
 
         
-    return dico_best
+    
 
 
 
@@ -80,6 +82,10 @@ def dico_best_empty(entree):
     #return sortie
     #on doit ajouter la reponse dans notre truk
 
+
+    #4 oui dis moi et on marque la prochaine phrase
+    #on doit ajouter " "
+
 def cont2():
     reponse = requete2()
 
@@ -88,8 +94,14 @@ def cont2():
 
     reponse[hasard]
     
-    return reponse[hasard]
-    
+    return reponse[hasard][0], "cont2"
+
+
+def oui_non(oui_non, entree):
+    pass
+    #on recup "cont2" on recup lentree et si le type a dit oui ou non
+
+
 #soit faire un systeme de liste avec le conteneur appropriere
 #on reserve les oui, oui je saivais ouais et non je savais pas
 #et on met if question1 == oui ect
