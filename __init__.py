@@ -1,3 +1,6 @@
 from flask import Flask
 from .parsage import *
-from .conteneur_requete import *
+from .phrase_anecdocte import *
+from .phrase_schema import *
+from .requete1 import *
+from .run import app
