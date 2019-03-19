@@ -1,7 +1,7 @@
 # GrandCat1
 
 #on devie si on a pas de phrase schéma par une phrase anecdocte on l'ecrit, et on la repose apres pour voir ce que le mec repond 
-
+#cha devrait faire un index out of range et dans le except on ecrit putin fais chier apres les quoi de neuf je sais pas quoi dire moi
 
 #faire les phrases
 
