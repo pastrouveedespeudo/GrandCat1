@@ -1,23 +1,16 @@
-from .requete1 import *
-import os
+"""here we are going to write the sentences that requete1 does not have
+and we write in"""
 
 def ecriture(entree):
-
-
+    """we opening requete1 source of our sentences"""
     liste = []
 
-    fichier = open("fbapp/requete1.py","r")
+    fichier = open("fbapp/requete1.py", "r")
 
     liste.append(fichier.read())
 
-    print(liste[0])
-    print("-----------------")
-    print(liste[0][-19:])
     liste[0] = liste[0][:-17]
-    print(liste)
 
-
-    
     with open("fbapp/requete1.py", "w") as file:
         file.write((str(liste[0][:-17])\
                     + "\n"\
@@ -25,12 +18,3 @@ def ecriture(entree):
                     +"," + "\n"\
                     + "           ]" + '\n'\
                     +"    "+"return liste"))
-
-
-
-
-
-
-
-
-
