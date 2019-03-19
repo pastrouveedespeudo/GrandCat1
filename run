@@ -84,7 +84,17 @@ def reponse():
     print(liste_oui_non)
 
 
-    return jsonify({'data':phrase_schema})
+    phrase = '<div style="font-size:1.5em; color:black;">'\
+             + str(question)\
+             + '<br>'\
+             + str(phrase_schema)\
+             + '</div>'
+             
+
+    CONVERSATION.append(phrase)
+
+
+    return jsonify({'data':CONVERSATION})
 
 
 
