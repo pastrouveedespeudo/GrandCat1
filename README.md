@@ -1,5 +1,8 @@
 # GrandCat1
 
+#on devie si on a pas de phrase schéma par une phrase anecdocte on l'ecrit, et on la repose apres pour voir ce que le mec repond 
+
+
 #faire les phrases
 
 #enregistrer les phrases et les recup
