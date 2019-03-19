@@ -19,7 +19,8 @@ import random
 import time
 
 from .parsage import *
-from .choix_phrase import *
+from .phrase_schema import *
+from .phrase_anecdocte import *
 import os
 
 
@@ -66,7 +67,7 @@ def effacer():
 
 
 
-liste_oui_non = ["reponse schéma"]
+liste_oui_non = ["phrase schema"]
 
 
 @app.route('/reponse', methods=["GET", "POST"]) 
@@ -76,30 +77,14 @@ def reponse():
     question = request.form['data']
     question1 = question.lower()
 
-    if liste_oui_non[-1] == "reponse schéma":
-
-        rep_predef = lecture_liste(question1, liste_oui_non)
-        
-        CONVERSATION.append(('<center><div style="color:black;font-size:1em;">'\
-                             + str(question)\
-                             + '<br>'
-                             + str(rep_predef)\
-                             + '</center></div>'))
-
-        return jsonify({'data':CONVERSATION})
-
-    
-    elif liste_oui_non[-1][:-2] == "phrase anecdocte":
-        convers = dico_best_empty(question, liste_oui_non)
-        return jsonify({'data':convers})
+    phrase_schema = lecture_liste(question1, liste_oui_non)
 
 
 
     print(liste_oui_non)
 
-    
-    error = "error"
-    return jsonify({'data':error})
+
+    return jsonify({'data':phrase_schema})
 
 
 
