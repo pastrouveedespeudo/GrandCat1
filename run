@@ -66,28 +66,41 @@ def effacer():
 
 
 
-liste_oui_non = []
+liste_oui_non = ["reponse schéma"]
 
 
 @app.route('/reponse', methods=["GET", "POST"]) 
 def reponse():
     
+    
     question = request.form['data']
     question1 = question.lower()
 
-    liste = lecture_liste(question1)
-    liste2 = tri_liste(liste)
-    liste3 = analyse_dico(liste2, question1)
-    
-    liste_oui_non.append(liste3)
-    if liste_oui_non[-1][-1] != " ":
-        oui_non(question1, liste_oui_non[-1][-1])
-        #return ....
-  
-    print(liste_oui_non)
-    CONVERSATION.append((str(liste3)+"<br>"))
+    if liste_oui_non[-1] == "reponse schéma":
 
-    return jsonify({'data':CONVERSATION})
+        rep_predef = lecture_liste(question1, liste_oui_non)
+        
+        CONVERSATION.append(('<center><div style="color:black;font-size:1em;">'\
+                             + str(question)\
+                             + '<br>'
+                             + str(rep_predef)\
+                             + '</center></div>'))
+
+        return jsonify({'data':CONVERSATION})
+
+    
+    elif liste_oui_non[-1][:-2] == "phrase anecdocte":
+        convers = dico_best_empty(question, liste_oui_non)
+        return jsonify({'data':convers})
+
+
+
+    print(liste_oui_non)
+
+    
+    error = "error"
+    return jsonify({'data':error})
+
 
 
 
