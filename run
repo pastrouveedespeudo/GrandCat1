@@ -3,7 +3,6 @@ import subprocess
 from geopy.geocoders import Nominatim
 from flask import Flask, render_template, url_for, request, jsonify
 
-
 app = Flask(__name__)
 
 import urllib.request
@@ -17,30 +16,20 @@ import requests
 import wikipediaapi
 import random
 import time
-
 from .parsage import *
 from .phrase_schema import *
 from .phrase_anecdocte import *
 import os
 
-
 app = Flask(__name__)
-
-
 
 LISTE = []
 LISTE_PHRASE = []
 LISTE_WIKI = []
 LOCALISATION_WIKI = []
-
-
-
-
-ETAPE = [1]
-
 CONVERSATION = []
 
-                 
+
 @app.route('/')
 def home():
     """Here we just display home page"""
@@ -59,31 +48,28 @@ def effacer():
     CONVERSATION = []
 
 
-
-
-
-
-
-
-
-
 liste_oui_non = ["phrase schema"]
 
 
 @app.route('/reponse', methods=["GET", "POST"]) 
 def reponse():
-    
-    
+
+
     question = request.form['data']
     question1 = question.lower()
 
     phrase_schema = lecture_liste(question1, liste_oui_non)
 
+    #comment lui faire apprendre ?
 
 
-    print(liste_oui_non)
+    #vieux garcon ou vieille fille ?
+    #requete 3 ca repdnre des phrases en gros ca relance le schéma
+    #requete2 ca permet de reconduire vers les schema ok !
 
+    print(liste_oui_non,"79899999999999999999")
 
+    
     phrase = '<div style="font-size:1.5em; color:black;">'\
              + str(question)\
              + '<br>'\
@@ -130,7 +116,6 @@ def img():
 @app.route('/geo', methods=["GET", "POST"]) 
 def geo():
     data_wiki = request.form['data']
-    print(data_wiki,"0000")
 
     data_no_ponctuation = no_ponctuation(data_wiki)
 
@@ -166,7 +151,9 @@ def geo2():
 def wiki():
 
     b = ""
-    liste = [[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]]
+    liste = [[], [], [], [], [], [], [], [],
+             [], [], [], [], [], [], [], [],
+             [], [], []]
     c = 0
     
     data_wiki = request.form['data']
@@ -190,7 +177,7 @@ def wiki():
             for j in i:
                 liste[c].append(j)
                 if j == ',':
-                    c+=1
+                    c += 1
 
     sentence_from_grandpy = ["Savez tu que :", "T'avais-je dis que :",
                              "Une fois on m'a dit que :"]
@@ -206,13 +193,13 @@ def wiki():
         page = ("<p style='color:black; font-size:1.5em;'><strong>" + str(choix)\
                 +"</strong>" + "<br>"\
                 + str(page_py.sections[0:200]) + "...</p>")
-  
+
         return jsonify({'data':page})
 
     else:
         page = "<p style='color:black; font-size:1.5em;'>Oups je n'ai rien trouvé</p>"
         return jsonify({'data':page})
-        
+
 
 @app.route('/data', methods=["GET", "POST"])
 def data():
@@ -227,23 +214,23 @@ def data():
 
     date = time.strftime("%A %d %B %Y %H:%M:%S")
     date = str(date)
-    
+
     LISTE.append("<div style='font-style:italic;font-size:1.3em; color:black;'>A {}</div>".format(date))
 
     LISTE.append("<div style='color:black; font-size:1.3em;'><strong>Votre question: </strong></div>")
     LISTE.append("<div style='font-style:italic;font-size:1.3em; color:black;'>{}</div>".format(data))
-    
+
 
     if data:
-        
+
         var = searching(dernier_mot)
        
         LISTE.append("<div style='font-style:italic;font-size:1.5em;color:black;'><strong>Chat alors une addresse trouvée: </strong></div>")
         LISTE.append("<div style='font-size:1.5em; color:black;'><strong>{}</strong></div>".format(var))
         LISTE.append("<br>")
-        
+
         return jsonify({'data':LISTE})
-        
+
     return jsonify({'error':'...'})
 
 
