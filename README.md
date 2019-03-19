@@ -1,18 +1,14 @@
 # GrandCat1
 
+#faire les phrases
+
+#enregistrer les phrases et les recup
+
+#pense avant sinon c sale et tu t'y retoruve pas "phrase anecdocte" c'est mieux que " "
+
 #pep 8 avant
 
-grrrrr c simple pourtant connard
-
-1 on remplit jusqu'a ce qu'il est plus de phrase auto et on met reponse schéma
-
-2 si ya pas de phrase on va dans requete2 on choisit au hasard, on retourne la phrase et on met phrase anecdocte
-
-3- si ya phras eanecdocte et pas rep shchma on recup le oui ou le non et on remet la phrase 
-
-si un putin  de connar a repertorié tous les reves jpe faire un putin de tchat non pfff nik
-
-#faire les quémou et les test
+#faire les quemou et les test
 
 1 tchat
 
