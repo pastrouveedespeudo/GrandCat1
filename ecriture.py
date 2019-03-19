@@ -10,9 +10,10 @@ def ecriture(entree):
     liste.append(fichier.read())
 
     liste[0] = liste[0][:-17]
-
+    print(liste[0][-2:])
+    print("ty")
     with open("fbapp/requete1.py", "w") as file:
-        file.write((str(liste[0][:-17])\
+        file.write((str(liste[0][:-2])\
                     + "\n"\
                     + "           [" + '"' +str(entree) + '"]'\
                     +"," + "\n"\
