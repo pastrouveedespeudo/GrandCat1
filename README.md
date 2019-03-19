@@ -10,7 +10,7 @@ grrrrr c simple pourtant connard
 
 3- si ya phras eanecdocte et pas rep shchma on recup le oui ou le non et on remet la phrase 
 
-dans mon reve je revais que jcourrais pour aller coder courir serieux et la je coince ah ben si je reve que je vias me heurté a un obstacle merde je savais que ca allait etre dur
+si un putin  de connar a repertorié tous les reves jpe faire un putin de tchat non pfff nik
 
 #faire les quémou et les test
 
