@@ -19,6 +19,7 @@ import time
 from .parsage import *
 from .phrase_schema import *
 from .phrase_anecdocte import *
+from .convers import *
 import os
 
 app = Flask(__name__)
@@ -90,8 +91,33 @@ def reponse():
 def img():
 
     img = request.form['data']
+    #normalement on met l'image selon la phrase
+    #par exemple non ou croquete (on defile des images)
 
-    return jsonify({'data':""})
+    liste = ['aurevoir.jpg', 'bonjourcava.jpg',
+             'casentbizzardtontruk.jpg', 'cki.jpg',
+             'cmonpoterico.jpg', 'connarquestion.jpg',
+             'cquoicasemange.jpg', 'croooooooo.jpg',
+             'croquetteebd.jpg', 'croquettequestion.jpg',
+             'croquettttttte.jpg', 'evitequestion.jpg',
+             'girencompris.jpg', 'griencapte.jpg', 'grosmot.jpg',
+             'gstrictemenrriencdompris.jpg', 'heouiii.jpg',
+             'iladitcroquette.jpg', 'imaginehinquoi.jpg',
+             'injure.jpg', 'jaipascompris.jpg', 'moiaussicava.jpg',
+             'nannn.jpg', 'nannnn.jpg', 'nannnnnnnnnnnnnnn.jpg',
+             'nonrep.jpg', 'ohhctpasdumiel.jpg', 'one',
+             'onestcopain.jpg', 'ontecoute.jpg', 'ontecoute2.jpg',
+             'onvacasserlagueuleaqui.jpg', 'ouaisetquestion.jpg',
+             'ouitjpire.jpg', 'pasdekeumhumhum.jpg',
+             'posemoiuneadresse.jpg',
+             'poussezvousjesuisinfirmier.jpg',
+             'putinjaitropbouffer.jpg', 'questquya.jpg',
+             'quette.jpg', 'quoi.jpg', 'quoiiii.jpg', 'quoitadisquoi.jpg',
+             'tasunkeum.jpg', 'tasvrmntditcroquette.jpg',
+             'taunecbsurtoi.jpg', 'taunemeuf.jpg', 'tuveuxcasserlesgenouxaqui.jpg', 'yauratoujourspire.jpg',
+             'yvamedemanderuneadresseoui.jpg']
+    a = random.choice(liste)
+    return jsonify({'data':"<img src='static/convers/one/{}' style='width:100%; height:290px;'/>".format(a)})
 
 
 
