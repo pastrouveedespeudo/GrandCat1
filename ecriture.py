@@ -21,9 +21,10 @@ def ecriture(entree):
     with open("fbapp/requete1.py", "w") as file:
         file.write((str(liste[0][:-17])\
                     + "\n"\
-                    + "           [" + str(entree)\
+                    + "           [" + '"' +str(entree) + '"]'\
                     +"," + "\n"\
-                    + "           ]"))
+                    + "           ]" + '\n'\
+                    +"    "+"return liste"))
 
 
 
