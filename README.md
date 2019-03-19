@@ -10,6 +10,8 @@ grrrrr c simple pourtant connard
 
 3- si ya phras eanecdocte et pas rep shchma on recup le oui ou le non et on remet la phrase 
 
+dans mon reve je revais que jcourrais pour aller coder courir serieux et la je coince 
+
 #faire les quémou et les test
 
 1 tchat
