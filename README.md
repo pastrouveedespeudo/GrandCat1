@@ -1,6 +1,6 @@
 # GrandCat1
 
-"oh bonne mere 2h 6 questions qui monte en crescendo et jarrive pas a passer la premeire question maiiiiiis je veux la vr... tout le monde veut la vr putin ah ben oui c pas la meme chose que d'afficher des images hin grogrohkon
+#relevé topographique mtn hé fdp jarrive pas a faire tes cartes putiun mais en vrai c grave drole ^^ mais bon en 15 minutes y'a des mecs qui sont a lexo 3... 15 minutes... en 2h 3 finissent sur les 3000 et moi chui tj a test de comprendre la consigne pffff
 
 #ok fini juste ce truk la, et les 2 autres truk et laisse cha comme cha et t'expliquera ca au mec et go django
 
