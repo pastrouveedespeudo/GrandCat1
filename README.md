@@ -1,7 +1,6 @@
 # GrandCat1
 
-#au moins deux exo + maitriser leur correction et c ok
-#20 minutes comprendre trouver la sous sequence y de la sequence x -> trouve les meme lettres dans le bonne ordre
+#mtn faut les lambda et apprendre totues les natives et apres faut que jcode comme dans les solutions dans 1 an jpourrais reussir a faire le concourt et gagner ma vr mais la c juste impossible bouaaa jtai sous pression mais non gros, t'as pas le lvl la 
 
 
 #pep 8 avant
