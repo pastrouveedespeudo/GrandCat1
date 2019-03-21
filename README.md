@@ -1,6 +1,6 @@
 # GrandCat1
 
-#tout réecrire en anglais et ensuite fait le truk koali avec les nouvelle techniques ! et staprem amuz toi maggl
+#refaire le tchat try except c pour ca qu'on a pas le droit et ensuite fait le truk koali avec les nouvelle techniques ! et staprem amuz toi maggl
 
 #pep 8 avant
 
