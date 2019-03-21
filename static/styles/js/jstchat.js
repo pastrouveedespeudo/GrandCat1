@@ -1,4 +1,3 @@
-
 $(document).ready(function(){
   $("form").on("submit", function(e){
       $.ajax({
@@ -50,4 +49,4 @@ $(document).ready(function(){
 
 function effacer(){
   document.getElementById("idRecupInfo").value = "";
-}
+};
