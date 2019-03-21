@@ -1,7 +1,6 @@
 """Here we link between html, js pages and python processing"""
-
 import os
-import subprocess  
+import subprocess
 from geopy.geocoders import Nominatim
 from flask import Flask, render_template, url_for, request, jsonify
 
@@ -23,8 +22,6 @@ from .phrase_schema import *
 from .phrase_anecdocte import *
 from .convers import *
 import os
-
-app = Flask(__name__)
 
 LIST = []
 LIST_SENTENCE = []
@@ -58,12 +55,8 @@ def answer():
 
     question = request.form['data']
     question1 = question.lower()
-
     sentence_schema = read_list(question1, list_yes_no)
 
-    print(list_yes_no,"79899999999999999999")
-
-    
     sentence = '<div style="font-size:1.5em; color:black;">'\
              + str(question)\
              + '<br>'\
@@ -84,8 +77,6 @@ def answer():
 def img():
 
     img = request.form['data']
-    #normalement on met l'image selon la phrase
-    #par exemple non ou croquete (on defile des images)
 
     liste = ['aurevoir.jpg', 'bonjourcava.jpg',
              'casentbizzardtontruk.jpg', 'cki.jpg',
@@ -107,14 +98,18 @@ def img():
              'putinjaitropbouffer.jpg', 'questquya.jpg',
              'quette.jpg', 'quoi.jpg', 'quoiiii.jpg', 'quoitadisquoi.jpg',
              'tasunkeum.jpg', 'tasvrmntditcroquette.jpg',
-             'taunecbsurtoi.jpg', 'taunemeuf.jpg', 'tuveuxcasserlesgenouxaqui.jpg', 'yauratoujourspire.jpg',
+             'taunecbsurtoi.jpg', 'taunemeuf.jpg',
+             'tuveuxcasserlesgenouxaqui.jpg',
+             'yauratoujourspire.jpg',
              'yvamedemanderuneadresseoui.jpg']
-    
+
     a = random.choice(liste)
-    return jsonify({'data':"<img src='static/convers/one/{}' style='width:100%; height:290px;'/>".format(a)})
+    return jsonify({'data':"<img src='static/convers/one/{}'\
+                    style='width:100%;\
+                    height:290px;'/>".format(a)})
 
 
-@app.route('/geo', methods=["GET", "POST"]) 
+@app.route('/geo', methods=["GET", "POST"])
 def geo():
     """Here we send longitude data"""
 
@@ -128,7 +123,7 @@ def geo():
     return jsonify({'data':page})
 
 
-@app.route('/geo2', methods=["GET", "POST"]) 
+@app.route('/geo2', methods=["GET", "POST"])
 def geo2():
     """Here we send latitude data"""
 
@@ -142,8 +137,7 @@ def geo2():
     return jsonify({'data':page})
 
 
-
-@app.route('/wiki', methods=["GET", "POST"]) 
+@app.route('/wiki', methods=["GET", "POST"])
 def wiki():
     """He we send wikipedia stuff"""
 
@@ -152,22 +146,15 @@ def wiki():
              [], [], [], [], [], [], [], [],
              [], [], []]
     c = 0
-    
     data_wiki = request.form['data']
-
     if data_wiki == "":
         page = ""
         return jsonify({'data':page})
-        
     else:
         data_no_ponctuation = no_ponctuation(data_wiki)
-
         cleaning = apostrohpe(data_no_ponctuation)
-   
         last_word = parsing_text(cleaning)
-    
         search = searching(last_word)
-
         addresse = []
         addresse.append(search[0])
         for i in addresse:
@@ -176,25 +163,28 @@ def wiki():
                 if j == ',':
                     c += 1
 
-    sentence_from_grandpy = ["Savez tu que :", "T'avais-je dis que :",
+    sentence_from_grandpy = ["Savez tu que :",
+                             "T'avais-je dis que :",
                              "Une fois on m'a dit que :"]
-    
+
     choice = random.choice(sentence_from_grandpy)
 
     element = "".join(liste[2][:-1])
-    
+
     wiki_wiki = wikipediaapi.Wikipedia('fr')
     page_py = wiki_wiki.page('{}'.format(element))
     existe = page_py.exists()
     if existe == True:
-        page = ("<p style='color:black; font-size:1.5em;'><strong>" + str(choice)\
+        page = ("<p style='color:black; font-size:1.5em;'>\
+                <strong>" + str(choice)\
                 +"</strong>" + "<br>"\
                 + str(page_py.sections[0:200]) + "...</p>")
 
         return jsonify({'data':page})
 
     else:
-        page = "<p style='color:black; font-size:1.5em;'>Oups je n'ai rien trouvé</p>"
+        page = "<p style='color:black; font-size:1.5em;'>\
+                Oups je n'ai rien trouvé</p>"
         return jsonify({'data':page})
 
 
@@ -212,16 +202,28 @@ def data():
     date = time.strftime("%A %d %B %Y %H:%M:%S")
     date = str(date)
 
-    LIST.append("<div style='font-style:italic;font-size:1.3em; color:black;'>A {}</div>".format(date))
+    LIST.append("<div style='font-style:italic;font-size:1.3em;\
+                color:black;'>A {}</div>".format(date))
 
-    LIST.append("<div style='color:black; font-size:1.3em;'><strong>Votre question: </strong></div>")
-    LIST.append("<div style='font-style:italic;font-size:1.3em; color:black;'>{}</div>".format(data))
+    LIST.append("<div style='color:black; font-size:1.3em;'>\
+                <strong>Votre question: </strong></div>")
+
+    LIST.append("<div style='font-style:italic;\
+                font-size:1.3em; color:black;'>{}</div>".format(data))
 
 
     if data:
         var = searching(last_word)
-        LIST.append("<div style='font-style:italic;font-size:1.5em;color:black;'><strong>Chat alors une addresse trouvée: </strong></div>")
-        LIST.append("<div style='font-size:1.5em; color:black;'><strong>{}</strong></div>".format(var))
+        LIST.append("<div style='font-style:italic;\
+                    font-size:1.5em;color:black;'>\
+                    <strong>Chat alors une addresse trouvée: \
+                    </strong></div>")
+
+        LIST.append("<div style='font-size:1.5em;\
+                    color:black;'>\
+                    <strong>{}</strong>\
+                    </div>".format(var))
+
         LIST.append("<br>")
 
         return jsonify({'data':LIST})
