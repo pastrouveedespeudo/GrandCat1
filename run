@@ -1,3 +1,5 @@
+"""Here we link between html, js pages and python processing"""
+
 import os
 import subprocess  
 from geopy.geocoders import Nominatim
@@ -24,9 +26,9 @@ import os
 
 app = Flask(__name__)
 
-LISTE = []
-LISTE_PHRASE = []
-LISTE_WIKI = []
+LIST = []
+LIST_SENTENCE = []
+LIST_WIKI = []
 LOCALISATION_WIKI = []
 CONVERSATION = []
 
@@ -49,36 +51,27 @@ def effacer():
     CONVERSATION = []
 
 
-liste_oui_non = ["phrase schema"]
-
-
-@app.route('/reponse', methods=["GET", "POST"]) 
-def reponse():
-
+list_yes_no = ["phrase schema"]
+@app.route('/answer', methods=["GET", "POST"]) 
+def answer():
+    """Here we request methods and we send into html page"""
 
     question = request.form['data']
     question1 = question.lower()
 
-    phrase_schema = lecture_liste(question1, liste_oui_non)
+    sentence_schema = read_list(question1, list_yes_no)
 
-    #comment lui faire apprendre ?
-
-
-    #vieux garcon ou vieille fille ?
-    #requete 3 ca repdnre des phrases en gros ca relance le schéma
-    #requete2 ca permet de reconduire vers les schema ok !
-
-    print(liste_oui_non,"79899999999999999999")
+    print(list_yes_no,"79899999999999999999")
 
     
-    phrase = '<div style="font-size:1.5em; color:black;">'\
+    sentence = '<div style="font-size:1.5em; color:black;">'\
              + str(question)\
              + '<br>'\
-             + str(phrase_schema)\
+             + str(sentence_schema)\
              + '</div>'
              
 
-    CONVERSATION.append(phrase)
+    CONVERSATION.append(sentence)
 
 
     return jsonify({'data':CONVERSATION})
@@ -116,65 +109,43 @@ def img():
              'tasunkeum.jpg', 'tasvrmntditcroquette.jpg',
              'taunecbsurtoi.jpg', 'taunemeuf.jpg', 'tuveuxcasserlesgenouxaqui.jpg', 'yauratoujourspire.jpg',
              'yvamedemanderuneadresseoui.jpg']
+    
     a = random.choice(liste)
     return jsonify({'data':"<img src='static/convers/one/{}' style='width:100%; height:290px;'/>".format(a)})
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @app.route('/geo', methods=["GET", "POST"]) 
 def geo():
+    """Here we send longitude data"""
+
     data_wiki = request.form['data']
-
     data_no_ponctuation = no_ponctuation(data_wiki)
-
-    nettoyage = apostrohpe(data_no_ponctuation)
-   
-    dernier_mot = parsing_texte(nettoyage)
-    
-    search = searching(dernier_mot)
-
+    cleaning = apostrohpe(data_no_ponctuation)
+    last_word = parsing_text(cleaning)
+    search = searching(last_word)
     page = search[1]
+
     return jsonify({'data':page})
 
 
 @app.route('/geo2', methods=["GET", "POST"]) 
 def geo2():
+    """Here we send latitude data"""
+
     data_wiki = request.form['data']
-
-
     data_no_ponctuation = no_ponctuation(data_wiki)
-
-    nettoyage = apostrohpe(data_no_ponctuation)
-   
-    dernier_mot = parsing_texte(nettoyage)
-    
-    search = searching(dernier_mot)
-    
+    cleaning = apostrohpe(data_no_ponctuation)
+    last_word = parsing_text(cleaning)
+    search = searching(last_word)
     page = search[2]
+
     return jsonify({'data':page})
 
 
 
 @app.route('/wiki', methods=["GET", "POST"]) 
 def wiki():
+    """He we send wikipedia stuff"""
 
     b = ""
     liste = [[], [], [], [], [], [], [], [],
@@ -191,15 +162,15 @@ def wiki():
     else:
         data_no_ponctuation = no_ponctuation(data_wiki)
 
-        nettoyage = apostrohpe(data_no_ponctuation)
+        cleaning = apostrohpe(data_no_ponctuation)
    
-        dernier_mot = parsing_texte(nettoyage)
+        last_word = parsing_text(cleaning)
     
-        search = searching(dernier_mot)
+        search = searching(last_word)
 
-        adresse = []
-        adresse.append(search[0])
-        for i in adresse:
+        addresse = []
+        addresse.append(search[0])
+        for i in addresse:
             for j in i:
                 liste[c].append(j)
                 if j == ',':
@@ -208,7 +179,7 @@ def wiki():
     sentence_from_grandpy = ["Savez tu que :", "T'avais-je dis que :",
                              "Une fois on m'a dit que :"]
     
-    choix = random.choice(sentence_from_grandpy)
+    choice = random.choice(sentence_from_grandpy)
 
     element = "".join(liste[2][:-1])
     
@@ -216,7 +187,7 @@ def wiki():
     page_py = wiki_wiki.page('{}'.format(element))
     existe = page_py.exists()
     if existe == True:
-        page = ("<p style='color:black; font-size:1.5em;'><strong>" + str(choix)\
+        page = ("<p style='color:black; font-size:1.5em;'><strong>" + str(choice)\
                 +"</strong>" + "<br>"\
                 + str(page_py.sections[0:200]) + "...</p>")
 
@@ -234,37 +205,33 @@ def data():
 
     data = request.form['data']
     data_no_ponctuation = no_ponctuation(data)
-    nettoyage = apostrohpe(data_no_ponctuation)
+    cleanning = apostrohpe(data_no_ponctuation)
 
-    dernier_mot = parsing_texte(nettoyage)
+    last_word = parsing_text(cleanning)
 
     date = time.strftime("%A %d %B %Y %H:%M:%S")
     date = str(date)
 
-    LISTE.append("<div style='font-style:italic;font-size:1.3em; color:black;'>A {}</div>".format(date))
+    LIST.append("<div style='font-style:italic;font-size:1.3em; color:black;'>A {}</div>".format(date))
 
-    LISTE.append("<div style='color:black; font-size:1.3em;'><strong>Votre question: </strong></div>")
-    LISTE.append("<div style='font-style:italic;font-size:1.3em; color:black;'>{}</div>".format(data))
+    LIST.append("<div style='color:black; font-size:1.3em;'><strong>Votre question: </strong></div>")
+    LIST.append("<div style='font-style:italic;font-size:1.3em; color:black;'>{}</div>".format(data))
 
 
     if data:
+        var = searching(last_word)
+        LIST.append("<div style='font-style:italic;font-size:1.5em;color:black;'><strong>Chat alors une addresse trouvée: </strong></div>")
+        LIST.append("<div style='font-size:1.5em; color:black;'><strong>{}</strong></div>".format(var))
+        LIST.append("<br>")
 
-        var = searching(dernier_mot)
-       
-        LISTE.append("<div style='font-style:italic;font-size:1.5em;color:black;'><strong>Chat alors une addresse trouvée: </strong></div>")
-        LISTE.append("<div style='font-size:1.5em; color:black;'><strong>{}</strong></div>".format(var))
-        LISTE.append("<br>")
-
-        return jsonify({'data':LISTE})
+        return jsonify({'data':LIST})
 
     return jsonify({'error':'...'})
 
 
 @app.errorhandler(404)
 def page_not_found(error):
-    
     return render_template("errors/404.html"), 404
 
 if __name__ == "__main__":
     app.run(debug=True)
-   
