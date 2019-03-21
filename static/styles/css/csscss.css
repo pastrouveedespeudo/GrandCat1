@@ -1,117 +1,99 @@
 html{height:100%}
 
 body{
-    height:100%;
-    position:relative;
-    font-family:'Source Sans Pro';
-     background-color:#cd9557;
-    }
-
+  height:100%;
+  position:relative;
+  font-family:'Source Sans Pro';
+  background-color:#cd9557;
+}
 
 h1{
-    font-family:Merriweather;
-    font-weight:700;
-    font-size: 1.75vw;
-    }
-
+  font-family:Merriweather;
+  font-weight:700;
+  font-size: 1.75vw;
+}
 
 h2,h3,h4,h5,h6{
-    font-family:Merriweather;
-    font-weight:700;
-    font-size: 1.6vw;
-    }
-
+  font-family:Merriweather;
+  font-weight:700;
+  font-size: 1.6vw;
+}
 
 .masthead{position:relative;overflow:hidden;padding-bottom:15rem;z-index:2}
 
 .masthead .masthead-bg{
-	
-
 
 form{
-    text-align:center;
+  text-align:center;
 }
 
 p{
-    text-align:center;
+  text-align:center;
 }
 
 #blockinput{
-    text-align:center;
+  text-align:center;
 }
 
 .classRecupInfo{
-    text-align:center;
-    font-style:italic;
-    margin:0 auto;
+  text-align:center;
+  font-style:italic;
+  margin:0 auto;
 }
-
 
 #image1{
   float:right;
 }
 
-
 #c{
  float:left;
  color:red;
 }
+
 .formPseudo{
-    margin-top:-200;
-    margin-right:910px;
+  margin-top:-200;
+  margin-right:910px;
 }
-
-
-
-
-
 
 #inp{
   float:left;
-
 }
 
-
 #sub{
-margin-left:auto;
+  margin-left:auto;
 }
 
 #logoo{
-margin-top:10px;
-border-radius:10px;
-width:15%;
-margin-left:10px;
-display: flex;
-min-width:30px;
-min-height:30px;
-border:3px solid black;
+  margin-top:10px;
+  border-radius:10px;
+  width:15%;
+  margin-left:10px;
+  display: flex;
+  min-width:30px;
+  min-height:30px;
+  border:3px solid black;
 }
 
-
-display: flex;
-
-
-min-width:50px;
-min-height:50px;
-max-width:120px;
-border:3px solid black;
-
-max-height:200px;
+#tourne{
+  margin-top:10px;
+  border-radius:10px;
+  width:30%;
+  float:right;
+  display: flex;
+  min-width:50px;
+  min-height:50px;
+  max-width:120px;
+  border:3px solid black;
+  max-height:200px;
 }
-
-
 
 #discussion{
-border: 1px solid black;
-width: 100%;
-overflow:auto;
-height:300px;
-float:left;
-background-color:# bd6242;
-
+  border: 1px solid black;
+  width: 100%;
+  overflow:auto;
+  height:300px;
+  float:left;
 }
-
-
 
 #image{
   position:relative;
@@ -120,25 +102,4 @@ background-color:# bd6242;
   height:550px;
   overflow:auto;
   float:left;
-  background-color:# bd6242;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
