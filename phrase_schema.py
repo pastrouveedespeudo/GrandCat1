@@ -12,34 +12,32 @@ def read_list(entrance, list_yes_no):
     an anecdotal sentence so that we can refocus\
     the discussion and be able to collect\
     the non-existing sentence"""
-
+    liste = requete1()
+    sentence_after = []
     if list_yes_no[-1] == "phrase schema":
         count = 0
-        liste = requete1()
-        sentence_after = []
         for i in liste:
             count1 = 0
             for j in liste[count]:
-                if entrance == liste[count][count1]:
-                    try:
-                        sentence_after.append(liste[count][count1 + 1])
-                    except:
-                        pass
+                if entrance == j:
+                    sentence_after.append(liste[count][count1 + 1])
+                    dico_best = sorting_list(sentence_after)
+                    list_yes_no.append("phrase schema")
+                    return dico_best
+                elif entrance != j:
+                    list_yes_no.append("phrase anecdocte")
                 count1 += 1
             count += 1
 
-    elif list_yes_no[-1][:-2] == "phrase anecdocte":
+    if list_yes_no[-1][:-2] == "phrase anecdocte":
         dico_best = yes_no(entrance, list_yes_no)
         return dico_best
-    try:
-        dico_best = sorting_list(sentence_after)
-        list_yes_no.append("phrase schema")
-    except:
+    elif list_yes_no[-1] == "phrase anecdocte":
         list_yes_no.append("phrase anecdocte")
         dico_best = dico_best_empty(entrance, list_yes_no)
-        #ecriture(entree)
-
-    return dico_best
+        return dico_best
+    
+    return "*ronronne*"
 
 
 def sorting_list(entrance):
