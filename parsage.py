@@ -1,3 +1,5 @@
+"""This is methods to check the answers"""
+
 import requests
 from bs4 import BeautifulSoup
 from geopy.geocoders import Nominatim
@@ -14,7 +16,6 @@ def no_ponctuation(entrance):
         else:
             new.append(i)
 
-
     try:
         if new[-1] == " ":
             return "".join(new[:-1])
@@ -30,14 +31,13 @@ def search_dico(data):
 
     path = "http://www.cnrtl.fr/definition/{}/substantif".format(data)
 
-    requete = requests.get(path)
-    page = requete.content
-
+    request = requests.get(path)
+    page = request.content
     soup = BeautifulSoup(page, "html.parser")
-    propriete = soup.find_all("div")
+    propertyy = soup.find_all("div")
 
-    fem = str(propriete).find("fém")
-    masc = str(propriete).find("masc")
+    fem = str(propertyy).find("fém")
+    masc = str(propertyy).find("masc")
 
     if fem >= 0:
         return "nf"
@@ -51,27 +51,27 @@ def apostrohpe(data):
     """Here we deleting apostrophe and add e or a from search_dico"""
 
     liste = []
-    liste_dico = [[], [], [], [], [], [], [], [], [], [], [], [], [], []]
-    phrase_accroche = "Salut GrandPY  Est-ce que tu connais l'adresse"
+    list_dico = [[], [], [], [], [], [], [], [], [], [], [], [], [], []]
+    catchphrase = "Salut GrandPY  Est-ce que tu connais l'adresse"
 
-    a = str(data).find(str(phrase_accroche))
+    a = str(data).find(str(catchphrase))
 
     if a >= 0:
         liste = []
         for i in data:
             liste.append(i)
 
-        mot = []
+        word = []
         c = 0
         com = 0
         for i in liste:
             if liste[c] == "'":
                 for j in liste[c+1:-1]:
-                    liste_dico[com].append(j)
+                    list_dico[com].append(j)
                     if j == " ":
                         com += 1
                         break
-                for i in liste_dico:
+                for i in list_dico:
                     if i == []:
                         pass
                     else:
@@ -80,37 +80,37 @@ def apostrohpe(data):
                             liste[c] = "e"
                         elif sub == "nf":
                             liste[c] = "a"
-                mot.append(liste[c])
-                mot.append(" ")
+                word.append(liste[c])
+                word.append(" ")
             else:
-                mot.append(liste[c])
+                word.append(liste[c])
             c += 1
-        mot = "".join(mot)
-        return mot
+        word = "".join(word)
+        return word
     else:
         return data
 
 
-def parsing_texte(data):
+def parsing_text(data):
     """Here we'll go to parsing data \
     if user input sentences: Salut GrandPY ! Est-ce que tu connais l'adresse de\
     we juste take the last word from the sentece"""
 
 
-    liste2 = [[], [], [], [], [], [], [], [], [], [], [], [], []]
+    list2 = [[], [], [], [], [], [], [], [], [], [], [], [], []]
     yoda = []
     find = 0
 
-    phrase_accroche = "Salut GrandPY  Est-ce que tu connais la adresse"
-    search = str(data).find(str(phrase_accroche))
+    catchphrase = "Salut GrandPY  Est-ce que tu connais la adresse"
+    search = str(data).find(str(catchphrase))
 
     if search >= 0:
         for i in data:
-            liste2[find].append(i)
+            list2[find].append(i)
             if i == " ":
                 find += 1
 
-        for j in liste2:
+        for j in list2:
             if j == []:
                 pass
             else:
@@ -122,14 +122,14 @@ def parsing_texte(data):
 
 
 
-def searching(parametre):
+def searching(parameter):
     """Here we searching from Python modul(geopy.geocoders)\
     address from the input from html page"""
 
     geocoder = Nominatim(user_agent="run.py")
     #parametre is data recup from data()
 
-    location = geocoder.geocode(parametre, True, 30)
+    location = geocoder.geocode(parameter, True, 30)
     localisation = location.address
     localisation = str(localisation)
 
