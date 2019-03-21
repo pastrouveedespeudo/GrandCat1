@@ -33,10 +33,10 @@ def yes_no(yes_no, entrance):
     print(conteneur_ans, "clinstiwoooooooooooooooooood")
     for i in list_yes:
         if yes_no == i:
-            entrance.append("fin anecdocte")
+            entrance.append("phrase schema")
             return conteneur_ans[2]
 
     for i in list_no:
         if yes_no == i:
-            entrance.append("fin anecdocte")
+            entrance.append("phrase schema")
             return conteneur_ans[1]
