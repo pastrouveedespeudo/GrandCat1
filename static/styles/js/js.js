@@ -14,7 +14,7 @@ function change_image(){
         liste_image_logo_i++
     }
     else{
-        liste_image_logo_i = 0
+      liste_image_logo_i = 0
     };
 };
 
@@ -31,14 +31,12 @@ function stop_logo_loading(){
 
 
 function map(){
-  document.getElementById("map").innerHTML = "";
-  document.getElementById("map").style.width = "100%";
-  document.getElementById("map").style.height = "200px";
+  document.getElementById("map").innerHTML = ""
+  document.getElementById("map").style.width = "100%"
+  document.getElementById("map").style.height = "200px"
 };
 
-
 MONCADRE = []
-
 $(document).ready(function(){
   $("form").on("submit", function(e){
       $.ajax({
@@ -61,7 +59,63 @@ $(document).ready(function(){
       });
       add_favorite();
       e.preventDefault();
-      map(); 
+      map();
+      stop_logo_loading();
+  });
+});
+
+
+$(document).ready(function(){
+  $("form").on("submit", function(e){
+    start_logo_loading();
+      $.ajax({
+          data:{
+              data:$("#idRecupInfo").val(),
+          },
+          type:"POST",
+          url:"/geo2"
+      })
+      .done(function(data){
+          if (data.error){
+              $("#monCadreAlert").text(data.error);
+              $("#monCadreHidden2");
+          }
+          else{
+              $("#monCadreHidden2").html(data.data);
+              $("#monCadreAlert");
+              initMap();
+          };
+      });
+      add_favorite();
+      e.preventDefault();
+      map();
+  });
+});
+
+
+$(document).ready(function(){
+  $("form").on("submit", function(e){
+      $.ajax({
+          data:{
+              data:$("#idRecupInfo").val(),
+          },
+          type:"POST",
+          url:"/geo"
+      })
+      .done(function(data){
+          if (data.error){
+              $("#monCadreAlert").text(data.error);
+              $("#monCadreHidden");
+          }
+          else{
+              $("#monCadreHidden").html(data.data);
+              $("#monCadreAlert");
+              initMap(); 
+          };
+      });
+      add_favorite();
+      e.preventDefault();
+      map();
   });
 });
 
@@ -69,7 +123,6 @@ $(document).ready(function(){
 MONCADRE_WKI = []
 $(document).ready(function(){
   var finish2 = []
-  start_logo_loading();
   $("form").on("submit", function(ev){
       $.ajax({
           data:{
@@ -85,15 +138,13 @@ $(document).ready(function(){
           }
           else{
               $("#monCadreWiki").html(data.data);
-              $("#monCadreAlert");
-              stop_logo_loading(); 
-          }
+              $("#monCadreAlert");  
+          };
       });
-      effacer();
       ev.preventDefault();
+      effacer();
   });
 });
-
 
 
 function add_favorite(){
@@ -103,9 +154,11 @@ var ask = '  <center>Voulez vous ajouter cette adresse à vos favoris ?</center>
             <input type="submit" class="classButtonInput" id="idButtonInput" value="Non"/> \
             <form>'
 
-    document.getElementById("divFavorite").innerHTML = ask;
-};
 
+document.getElementById("divFavorite").innerHTML = ask
+//ici faire un post
+//et document.getElementById("divFavorite").innerHTML = ""
+};
 
 
 function initMap(){
@@ -114,16 +167,17 @@ function initMap(){
   var d = document.getElementById("monCadreHidden2");
   var monTexte = c.innerText || c.textContent;
   var monTexte2 = d.innerText || d.textContent;
-  var a = Number(monTexte);
-  var b = Number(monTexte2);
+  console.log(monTexte)
+  console.log(monTexte2)
+  var a = Number(monTexte)
+  var b = Number(monTexte2)
   var options = {
       zoom:13,
       center:{lat:a,lng:b}
-  }
+  };
   var map = new google.maps.Map(document.getElementById("map"), options);
   stop_logo_loading();
-}; 
-
+};
 
 
 function effacer(){
@@ -134,5 +188,3 @@ function effacer(){
 function imageTourne(){
   document.getElementById('nom-de-ta-photo').src= "l'url de ta nouvelle image";
 };
-
-
