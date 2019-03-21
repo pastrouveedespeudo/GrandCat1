@@ -6,37 +6,37 @@ from .requete1 import *
 from .requete2 import *
 
 
-def dico_best_empty(entree, liste_oui_non):
+def dico_best_empty(entree, list_yes_no):
     """we select random sentence"""
 
     #choix_aleatoire = random.choice(3)
     #1 une anecdote
-    choix_aleatoire = 1
-    if choix_aleatoire == 1:
-        reponse = requete2()
-        longueur_conteneur2 = len(reponse) - 1
-        hasard = random.randint(0, longueur_conteneur2)
-        liste_oui_non.append("phrase anecdocte "+str(hasard))
-        return reponse[hasard][0]
+    choice_random = 1
+    if choice_random == 1:
+        answer = requete2()
+        len_conteneur2 = len(answer) - 1
+        randomm = random.randint(0, len_conteneur2)
+        list_yes_no.append("phrase anecdocte "+str(randomm))
+        return answer[randomm][0]
 
 
-def oui_non(oui_non, entree):
+def yes_no(yes_no, entrance):
     """if the list contains anecdote sentence
     and that answer and yes we return a sentence"""
 
     cont = requete2()
 
-    liste_oui = ["oui"]
-    liste_non = ['non']
+    list_yes = ["oui"]
+    list_no = ['non']
 
-    conteneur_rep = cont[int(entree[-1][-1])]
-    print(conteneur_rep, "clinstiwoooooooooooooooooood")
-    for i in liste_oui:
-        if oui_non == i:
-            entree.append("fin anecdocte")
-            return conteneur_rep[2]
+    conteneur_ans = cont[int(entrance[-1][-1])]
+    print(conteneur_ans, "clinstiwoooooooooooooooooood")
+    for i in list_yes:
+        if yes_no == i:
+            entrance.append("fin anecdocte")
+            return conteneur_ans[2]
 
-    for i in liste_non:
-        if oui_non == i:
-            entree.append("fin anecdocte")
-            return conteneur_rep[1]
+    for i in list_no:
+        if yes_no == i:
+            entrance.append("fin anecdocte")
+            return conteneur_ans[1]
