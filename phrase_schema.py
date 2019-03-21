@@ -6,43 +6,43 @@ from .requete2 import *
 from .phrase_anecdocte import *
 
 
-def lecture_liste(entree, liste_oui_non):
+def read_list(entrance, list_yes_no):
     """here we choose to put a logical continuation\
     sentence of an existing conversation or we put\
     an anecdotal sentence so that we can refocus\
     the discussion and be able to collect\
     the non-existing sentence"""
 
-    if liste_oui_non[-1] == "phrase schema":
-        compteur = 0
+    if list_yes_no[-1] == "phrase schema":
+        count = 0
         liste = requete1()
-        phrase_apres = []
+        sentence_after = []
         for i in liste:
-            compteur1 = 0
-            for j in liste[compteur]:
-                if entree == liste[compteur][compteur1]:
+            count1 = 0
+            for j in liste[count]:
+                if entrance == liste[count][count1]:
                     try:
-                        phrase_apres.append(liste[compteur][compteur1 + 1])
+                        sentence_after.append(liste[count][count1 + 1])
                     except:
                         pass
-                compteur1 += 1
-            compteur += 1
+                count1 += 1
+            count += 1
 
-    elif liste_oui_non[-1][:-2] == "phrase anecdocte":
-        dico_best = oui_non(entree, liste_oui_non)
+    elif list_yes_no[-1][:-2] == "phrase anecdocte":
+        dico_best = yes_no(entrance, list_yes_no)
         return dico_best
     try:
-        dico_best = tri_liste(phrase_apres)
-        liste_oui_non.append("phrase schema")
+        dico_best = sorting_list(sentence_after)
+        list_yes_no.append("phrase schema")
     except:
+        list_yes_no.append("phrase anecdocte")
+        dico_best = dico_best_empty(entrance, list_yes_no)
         #ecriture(entree)
-        liste_oui_non.append("phrase anecdocte")
-        dico_best = dico_best_empty(entree, liste_oui_non)
 
     return dico_best
 
 
-def tri_liste(entrance):
+def sorting_list(entrance):
     """Here we go see all matches from entrance"""
 
     liste = []
@@ -52,13 +52,13 @@ def tri_liste(entrance):
         i = i.split()
 
     dico = {}
-    compteur = 0
+    count = 0
     for i in liste:
         dico[i] = -1
 
     for i in liste:
-        for cle, valeur in dico.items():
-            if i == cle:
+        for key, values in dico.items():
+            if i == key:
                 dico[i] += 1
 
     dico_best = max(dico)
