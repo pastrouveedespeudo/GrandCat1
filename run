@@ -155,13 +155,18 @@ def wiki():
         cleaning = apostrohpe(data_no_ponctuation)
         last_word = parsing_text(cleaning)
         search = searching(last_word)
-        addresse = []
-        addresse.append(search[0])
-        for i in addresse:
-            for j in i:
-                liste[c].append(j)
-                if j == ',':
-                    c += 1
+        if search == "None":
+            page = "<div style='font-size:1.3em; color:black;'>\
+                   Rien trouvé désolé</div>"
+            return jsonify({'data':page})
+        else:
+            addresse = []
+            addresse.append(search[0])
+            for i in addresse:
+                for j in i:
+                    liste[c].append(j)
+                    if j == ',':
+                        c += 1
 
     sentence_from_grandpy = ["Savez tu que :",
                              "T'avais-je dis que :",
@@ -214,19 +219,28 @@ def data():
 
     if data:
         var = searching(last_word)
-        LIST.append("<div style='font-style:italic;\
-                    font-size:1.5em;color:black;'>\
-                    <strong>Chat alors une addresse trouvée: \
-                    </strong></div>")
+        if var == "None":
+            LIST.append("<div style='font-style:italic;\
+                        font-size:1.5em;color:black;'>\
+                        <strong>Chat alors pas une addresse trouvée: \
+                        </strong></div>")
+            
+            return jsonify({'data':LIST})
+        
+        else:
+            LIST.append("<div style='font-style:italic;\
+                        font-size:1.5em;color:black;'>\
+                        <strong>Chat alors une addresse trouvée: \
+                        </strong></div>")
 
-        LIST.append("<div style='font-size:1.5em;\
-                    color:black;'>\
-                    <strong>{}</strong>\
-                    </div>".format(var))
+            LIST.append("<div style='font-size:1.5em;\
+                        color:black;'>\
+                        <strong>{}</strong>\
+                        </div>".format(var))
 
-        LIST.append("<br>")
+            LIST.append("<br>")
 
-        return jsonify({'data':LIST})
+            return jsonify({'data':LIST})
 
     return jsonify({'error':'...'})
 
