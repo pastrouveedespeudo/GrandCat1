@@ -24,7 +24,7 @@ def lecture_liste(entree, liste_oui_non):
                     try:
                         phrase_apres.append(liste[compteur][compteur1 + 1])
                     except:
-                        phrase_apres.append("faut mettre d'autre phrassse")
+                        pass
                 compteur1 += 1
             compteur += 1
 
@@ -35,7 +35,7 @@ def lecture_liste(entree, liste_oui_non):
         dico_best = tri_liste(phrase_apres)
         liste_oui_non.append("phrase schema")
     except:
-        ecriture(entree)
+        #ecriture(entree)
         liste_oui_non.append("phrase anecdocte")
         dico_best = dico_best_empty(entree, liste_oui_non)
 
