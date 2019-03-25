@@ -31,10 +31,16 @@ def test_parsing_text():
 
 def test_searching():
     parametre = "sa"
-    sortie = "sa"
-    assert script.parsing_text(parametre) == sortie
+    sortie = 'Salzburg, 5020, Österreich', 47.8028273, 13.057954916199
+    assert script.searching(parametre) == sortie
+
+def test_searching2():
+    parametre = "sdzaaaaaaaa"
+    sortie = 'None'
+    assert script.searching(parametre) == sortie
 
 
+    
 liste = []
 answer = ["oui et toi ?"]
 def test_dico_best_empty():
