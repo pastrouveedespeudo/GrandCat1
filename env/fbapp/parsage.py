@@ -50,8 +50,10 @@ def apostrohpe(data):
     catchphrase = "Salut GrandPY  Est-ce que tu connais l'adresse"
 
     a = str(data).find(str(catchphrase))
+    splite = data.split()
+    b = [i for i in splite[-1] if i == "'"]
 
-    if a >= 0:
+    if a >= 0 and b != []:
         
         splite = data.split()
         indexing = [splite.index(i) for i in splite for j in i if j == "'"]
@@ -61,8 +63,12 @@ def apostrohpe(data):
         apo_to_a_e = [str(i[0]) + "a" + " " + str(i[1]) if search_dico(i[1]) == "nf" else str(i[0]) + "e" +  " " + str(i[1])
               for i in splite2]
         apo_to_a_e = " ".join(apo_to_a_e)
-        
+
         return apo_to_a_e   
+
+    else:
+        return data
+
 
 
 def parsing_text(data):
