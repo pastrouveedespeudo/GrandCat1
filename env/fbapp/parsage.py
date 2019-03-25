@@ -47,57 +47,22 @@ def search_dico(data):
 def apostrohpe(data):
     """Here we deleting apostrophe and add e or a from search_dico"""
 
-    list_dico = [[], [], [], [], [], [], [], [], [], [], [], [], [], []]
     catchphrase = "Salut GrandPY  Est-ce que tu connais l'adresse"
 
     a = str(data).find(str(catchphrase))
-    
+
     if a >= 0:
-        liste = [j for i in data for j in i]
-
-        word = []
-        c = 0
-        com = 0
-
-        for i in liste:
-            if liste[c] == "'":
-                for j in liste[c+1:-1]:
-                    list_dico[com].append(j)
-                    if j == " ":
-                        com += 1
-                        break
-          
-                for i in list_dico:
-                    if i == []:
-                        pass
-                    else:
-                        try:
-                            sub = search_dico("".join(i))
-                            if sub == "nm":
-                                liste[c] = "e"
-                            elif sub == "nf":
-                                liste[c] = "a"
-                            else:
-                                liste[c] = "e"
-                        except:
-                            print("!!!!!!!!!!!!!!!!\
-                                    le dictionnaire en ligne n'a pas répondu\
-                                    Une tentative de connexion a échoué car\
-                                    le parti connecté n’a pas répondu\
-                                    convenablement au-delà d’une certaine\
-                                    durée ou une connexion établie a échoué\
-                                    car l’hôte de connexion n’a pas répondu")
-  
-                word.append(liste[c])
-                word.append(" ")
-
-            else:
-                word.append(liste[c])
-            c += 1
-        word = "".join(word)
-        return word
-    else:
-        return data
+        
+        splite = data.split()
+        indexing = [splite.index(i) for i in splite for j in i if j == "'"]
+        take_apostophe = [i for i in splite for j in i if j == "'"]
+        replacing = [i.replace("'", " ") for i in take_apostophe]
+        splite2 = [i.split() for i in replacing]
+        apo_to_a_e = [str(i[0]) + "a" + " " + str(i[1]) if search_dico(i[1]) == "nf" else str(i[0]) + "e" +  " " + str(i[1])
+              for i in splite2]
+        apo_to_a_e = " ".join(apo_to_a_e)
+        
+        return apo_to_a_e   
 
 
 def parsing_text(data):
@@ -105,21 +70,12 @@ def parsing_text(data):
     if user input sentences: Salut GrandPY ! Est-ce que tu connais l'adresse de\
     we juste take the last word from the sentence"""
 
-    catchphrase = "Salut GrandPY  Est-ce que tu connais la adresse"
-    search = str(data).find(str(catchphrase))
+    separate_element = data.split()
+    list_into_list = [i.split() for i in separate_element]
+    join_list = [",".join(j) for i in list_into_list for j in i]
+    unification = str(join_list[-1]).replace(",","")
 
-    if search >= 0:
-
-        separate_element = data.split()
-        list_into_list = [i.split() for i in separate_element]
-        join_list = [",".join(j) for i in list_into_list for j in i]
-        unification = str(join_list[-1]).replace(",","")
-                
- 
-        return unification
-
-    else:
-        return data
+    return unification
 
 
 def searching(parameter):
