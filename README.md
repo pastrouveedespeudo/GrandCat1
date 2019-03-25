@@ -1,6 +1,6 @@
 # GrandCat1
 
-#et des mecs mettent 15 minutes a faire 3 * ca en 1h y'en a qui font 6* ca ooooooooh purééé c'etait trop trop cool
+#et des mecs mettent 15 minutes a faire 3 * ca en 1h y'en a qui font 6* ca + lvl hardcore a partir du 2eme exo ooooooooh purééé c'etait trop trop cool nik je vais meme pas essayer je vais juste faire la correction ^^
 
 #mettre un time.sleep le logo de chargement se fait pas
 
