@@ -1,5 +1,7 @@
 # GrandCat1
 
+#mettre un time.sleep le logo de chargement se fait pas
+
 #ptetre j'ai pas compris mais nik améliorer le code, et faire le pdf et c'est bon
 
 #jcroyais jtai propre mais... j'ai amtté le code des autres oupsi juste matte la gueule du du doss
