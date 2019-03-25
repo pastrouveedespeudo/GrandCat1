@@ -138,7 +138,7 @@ $(document).ready(function(){
 
 
 function add_favorite(){
-var ask = '  <center>Voulez vous ajouter cette adresse à vos favoris ?</center> \
+var ask = '  <center>Voulez vous ajouter cette adresse Ã  vos favoris ?</center> \
             <form> \
             <input type="submit" class="classButtonInput" id="idButtonInput" value="Oui"/> \
             <input type="submit" class="classButtonInput" id="idButtonInput" value="Non"/> \
