@@ -47,13 +47,11 @@ def search_dico(data):
 def apostrohpe(data):
     """Here we deleting apostrophe and add e or a from search_dico"""
 
-    catchphrase = "Salut GrandPY  Est-ce que tu connais l'adresse"
 
-    a = str(data).find(str(catchphrase))
     splite = data.split()
     b = [i for i in splite[-1] if i == "'"]
 
-    if a >= 0 and b != []:
+    if b != []:
         
         splite = data.split()
         indexing = [splite.index(i) for i in splite for j in i if j == "'"]
